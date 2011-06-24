@@ -1,4 +1,4 @@
-ActiveAdminBase::Application.routes.draw do
+PersonalWebsite::Application.routes.draw do
 
   devise_for :admin_users, :path => 'admin'
 

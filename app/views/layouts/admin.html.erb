@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="utf-8"/>
+	<title><%= "#{t('app')} :: #{t('admin.admin')}" %></title>
+  <%= csrf_meta_tag %>
+  <%= tag :meta, :name => 'locale', :content => I18n.locale %>
+  <%= include_stylesheets :admin %>
+  <!--[if lt IE 9]><%= include_stylesheets :admin_ie %><![endif]-->
+</head>
+<body>
+	<header id="header">
+		<hgroup>
+			<h1 class="site_title"><%= link_to t('app'), admin_path %></h1>
+			<h2 class="section_title"><%= t('admin.dashboard') %></h2>
+      <div class="btn_view_site"><a href="/" target="_blank"><%= t('admin.view_site') %></a></div>
+		</hgroup>
+	</header> <!-- end of header bar -->
+
+	<section id="secondary_bar">
+		<div class="user">
+			<p><%= link_to current_admin_user.email, edit_admin_user_path(current_admin_user) %></p>
+      <%= link_to t('admin.sign_out'), destroy_admin_user_session_path, :class => 'logout_user', :title => t('admin.sign_out') %>
+		</div>
+		<div class="breadcrumbs_container">
+      <nav class="breadcrumbs">
+        <%= render_breadcrumbs :separator => content_tag(:div, '', :class => 'breadcrumb_divider'), :builder => Admin::Helpers::BreadcrumbBuilder %>
+      </nav>
+      <div class="ajax_loader_container"></div>
+		</div>
+	</section><!-- end of secondary bar -->
+
+	<aside id="sidebar" class="column">
+    <nav>
+      <% Rails.application.config.admin_menu.each do |menu| %>
+        <h3 class="toggle closed">
+          <%= menu.title %>
+        </h3>
+        <ul>
+          <% menu.each do |item| %>
+            <%= content_tag 'li', :class => "#{item.icon ? 'icn_' + item.icon : nil} #{current_path_for_menu?(item.path) ? 'current' : nil}" do %>
+              <%= link_to item.title, item.path.is_a?(Symbol) ? self.send(item.path) : item.path %>
+            <% end %>
+          <% end %>
+        </ul>
+      <% end %>
+    </nav>
+	</aside><!-- end of sidebar -->
+
+	<section id="main" class="column">
+    <%= render 'layouts/admin/flash' %>
+    <%= yield %>
+	</section>
+
+	<footer class="copyright">
+		<p><strong>Copyright &copy; <%= Time.now.year %> <%= t('app') %></strong></p>
+	</footer>
+
+  <%= javascript_include_tag 'ckeditor/ckeditor' %>
+  <%= include_javascripts :admin %>
+</body>
+</html>
+

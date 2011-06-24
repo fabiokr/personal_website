@@ -1,0 +1,35 @@
+en:
+  admin:
+    admin: Admin
+    dashboard: Dashboard
+    view_site: View Site
+    quick_search: Quick Search
+    sign_out: Sign out
+    content: Content
+    actions: Actions
+    confirm: Yes
+    negate: No
+    cancel: Cancel
+    save: Save
+    edit: Edit
+    delete: Delete
+    order: Order
+    drag: drag
+    draft: Unpublished
+    publish_now: "Change to today"
+    index_resource: "View %{resource_name}"
+    new_resource: "New %{resource_name}"
+    edit_resource: "Edit %{resource_name}"
+    show_resource: "%{resource_name}"
+    delete_resource: "Remove %{resource_name}"
+    delete_resource_confirmation: "Are you sure you want to remove this %{resource_name}?"
+    see_all: See all
+    delete_current_user: "Sorry, but you cannot delete yourself."
+    pages:
+      general: General Page
+      panel: Latest changed pages
+    content:
+      body: Main Content
+    titles:
+      pages: Pages
+

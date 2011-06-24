@@ -1,0 +1,36 @@
+"pt-PT":
+  activerecord:
+    models:
+      admin:
+        page: Página
+      admin_user: Usuário
+    attributes:
+      general: &general
+        title: Título
+        name: Nome
+        excerpt: Resumo
+        body: Conteúdo
+        description: Descrição
+        keywords: Palavras Chave
+        category: Categoria
+        category_id: Categoria
+        date: Data
+        published: Publicado(a)
+        published_at: Publicado(a) em
+        scheduled_to: Agendado(a) para
+        highlight: Destaque
+        updated_at: Atualizado(a) em
+        created_at: Criado(a) em
+        url: Url
+      admin:
+        page:
+          <<: *general
+      admin_user:
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação de senha
+        last_sign_in_ip: Último IP registrado
+        last_sign_in_at: Data do último login
+        updated_at: Atualizado(a) em
+        created_at: Criado(a) em
+

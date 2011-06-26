@@ -3,7 +3,11 @@ stylesheets:
     - 'public/stylesheets/admin/admin.css'
   admin_ie:
     - 'public/stylesheets/admin/admin-ie.css'
-
+  website:
+    - 'public/stylesheets/reset.css'
+    - 'public/stylesheets/screen.css'
+  website_ie6:
+    - 'public/stylesheets/ie6.css'
 javascripts:
   admin:
     - 'public/javascripts/lib/modernizr.js'
@@ -13,4 +17,6 @@ javascripts:
     - 'public/javascripts/lib/jquery_ujs.js'
     - 'public/javascripts/lib/plugins/jquery.equalHeight.js'
     - 'public/javascripts/admin.js'
+  website:
+    - 'public/javascripts/application.js'
 

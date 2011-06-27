@@ -16,4 +16,6 @@ PersonalWebsite::Application.routes.draw do
   end
 
   root :to => "homes#index"
+
+  match '*a', :to => 'errors#404'
 end

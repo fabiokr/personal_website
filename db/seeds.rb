@@ -7,3 +7,14 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 AdminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
+
+#Default content for pages
+Admin::Page.generate!
+
+#Application
+page = Admin::Page.for_controller(ApplicationController.controller_path)
+page.update_attributes(:title => 'Fabio Kreusch', :description => 'Fabio Kreusch personal website - Resume, previous works, blog', :keywords => 'fabio, kreusch, blog, resume, rails, developer, web, programming, ruby')
+
+#Home page
+page = Admin::Page.for_controller(HomesController.controller_path)
+page.update_attributes(:title => 'Home')

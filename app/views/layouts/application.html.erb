@@ -22,21 +22,29 @@
 		    <p id="slogan">Web developer</p>
 
 		    <div  id="nav">
+		      <%
+            menu = ActiveSupport::OrderedHash.new
+            menu['Home'] = {:url => root_path}
+            #menu['Blog'] = {:url => '/blog'}
+            menu['Resume'] = {:url => 'http://www.linkedin.com/in/fabiokreusch', :options => {:target => '_blank'}}
+            menu['Contact'] = {:url => 'mailto:fabiokr@gmail.com'}
+          %>
 			    <ul>
-				    <li><a href="/">Home</a></li>
-				    <li><a href="style.html">Work</a></li>
-				    <li id="current"><a href="blog.html">Blog</a></li>
-				    <li><a href="archives.html">Resume</a></li>
-				    <li><a href="mailto:fabiokr@gmail.com">Contact</a></li>
+			      <% menu.each do |title, options| %>
+			        <li class="<%= current_page?(options[:url]) ? 'current' : '' %>">
+                <%= link_to title.html_safe, options[:url], options[:options] %>
+              </li>
+			      <% end %>
 			    </ul>
 		    </div>
 
 		    <p id="rss-feed"><a href="index.html" class="feed">Grab the RSS Feed</a></p>
 
-		    <form id="quick-search" action="index.html" method="get" >
+		    <form id="quick-search" action="http://www.google.com/search" method="get" >
 			    <p>
 			    <label for="qsearch">Search:</label>
-			    <input class="tbox" id="qsearch" type="text" name="qsearch" value="Search..." title="Start typing and hit ENTER" />
+			    <input class="tbox" id="qsearch" type="text" name="q" size="31" maxlength="255" value="Search..." title="Start typing and hit ENTER" />
+			    <input type="hidden" name="sitesearch" value="www.kreusch.com.br">
 			    <input class="btn" alt="Search" type="image" name="searchsubmit" title="Search" src="images/search.png" />
 			    </p>
 		    </form>
@@ -49,8 +57,6 @@
 	    <div id="footer-outer" class="clear"><div id="footer-wrap">
 		    <div class="col-a">
 			    <h3>Contact Info</h3>
-
-			    <p><strong>Phone: </strong>+1 604-367-3592</p>
 			    <p><strong>E-mail: </strong><a href="mailto:fabiokr@gmail.com">fabiokr@gmail.com<a/></p>
 			    <p><strong>Location: </strong>Vancouver/Canada</p>
 
@@ -70,29 +76,22 @@
 
 			    <div class="footer-list">
 				    <ul>
-					    <li><a href="index.html">Home</a></li>
-					    <li><a href="index.html">Work</a></li>
-					    <li><a href="index.html">Blog</a></li>
-					    <li><a href="index.html">Resume</a></li>
-					    <li><a href="mailto:fabiokr@gmail.com">Contact</a></li>
+		          <% menu.each do |title, options| %>
+		            <li>
+                  <%= link_to title.html_safe, options[:url], options[:options] %>
+                </li>
+		          <% end %>
 				    </ul>
 			    </div>
 		    </div>
 
 		    <div class="col-a">
 			    <h3>Web Resource</h3>
-
-			    <p>Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu
-			    posuere nunc justo tempus leo. </p>
-
 			    <div class="footer-list">
-                    <ul>
-                        <li><a href="http://www.dreamtemplate.com" title="Website Templates">DreamTemplate</a></li>
-					    <li><a href="http://www.themelayouts.com" title="WordPress Themes">ThemeLayouts</a></li>
-					    <li><a href="http://www.imhosted.com" title="Website Hosting">ImHosted.com</a></li>
-					    <li><a href="http://www.dreamstock.com" title="Stock Photos">DreamStock</a></li>
-					    <li><a href="http://www.evrsoft.com" title="Website Builder">Evrsoft</a></li>
-					    <li><a href="http://www.webhostingwp.com" title="Web Hosting">Web Hosting</a></li>
+            <ul>
+					    <li><a href="http://rubyonrails.org/" title="Ruby on Rails" target="_blank">Ruby on Rails</a></li>
+					    <li><a href="http://guides.rubyonrails.org/" title="Rails Guides" target="_blank">Rails Guides</a></li>
+					    <li><a href="http://www.heroku.com" title="Heroku" target="_blank">Heroku</a></li>
 				    </ul>
 			    </div>
 		    </div>
@@ -101,11 +100,9 @@
 			    <h3>About</h3>
 
 			    <p>
-			    <a href="index.html"><img src="images/gravatar.jpg" width="40" height="40" alt="firefox" class="float-left" /></a>
-			    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.
-			    Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu
-			    posuere nunc justo tempus leo. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.
-			    Cras id urna. <a href="index.html">Learn more...</a></p>
+			      <a href="index.html"><img src="http://www.gravatar.com/avatar/67ac8dcae2fde06e9b4833e9d3796e4c?s=80" width="40" height="40" alt="firefox" class="float-left" /></a>
+			      Fabio Kreusch is a programmer currently living in Vancouver/Canada. He enjoys a good reading, going to the theater, playing video games or just checking another new programming thing.
+			    </p>
 
 		    </div>
 

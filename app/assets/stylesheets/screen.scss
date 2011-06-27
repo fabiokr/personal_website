@@ -283,7 +283,7 @@ input.button {
           &:hover, &:active {
             border: none;
             color: #fff; } }
-        &#current {
+        &.current {
           background: url(../images/left-nav-bg.gif) no-repeat;
           a {
             background: url(../images/right-nav-bg.gif) no-repeat right top;
@@ -412,8 +412,8 @@ input.button {
 /* Main */
 
 #main {
-  width: 600px;
-  float: left;
+  /*width: 600px;*/
+  /*float: left;*/
   padding-top: 5px;
   h2 {
     color: #f0e8e8;

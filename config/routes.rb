@@ -15,6 +15,6 @@ PersonalWebsite::Application.routes.draw do
     resources :pages
   end
 
-  resources :homes, :only => [:index]
+  match 'about' => 'about#index', :as => 'about'
   root :to => "homes#index"
 end

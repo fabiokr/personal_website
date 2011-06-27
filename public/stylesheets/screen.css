@@ -365,11 +365,11 @@ input.button {
   color: #fff;
 }
 /* line 286, ../../app/assets/stylesheets/screen.scss */
-#header #nav ul li#current {
+#header #nav ul li.current {
   background: url(../images/left-nav-bg.gif) no-repeat;
 }
 /* line 288, ../../app/assets/stylesheets/screen.scss */
-#header #nav ul li#current a {
+#header #nav ul li.current a {
   background: url(../images/right-nav-bg.gif) no-repeat right top;
   color: #f0e8e8;
 }
@@ -527,8 +527,8 @@ input.button {
 /* Main */
 /* line 414, ../../app/assets/stylesheets/screen.scss */
 #main {
-  width: 600px;
-  float: left;
+  /*width: 600px;*/
+  /*float: left;*/
   padding-top: 5px;
 }
 /* line 418, ../../app/assets/stylesheets/screen.scss */

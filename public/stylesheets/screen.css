@@ -15,7 +15,7 @@ body {
   color: #91807F;
   margin: 0;
   padding: 0;
-  background: #1d140f url(../images/bg.gif) repeat-x;
+  background: #1d140f url(/images/bg.gif) repeat-x;
   text-align: center;
 }
 
@@ -156,7 +156,7 @@ blockquote {
   margin: 10px 20px;
   padding: 15px 15px 15px 32px;
   border: 1px solid #251a14;
-  background: #130d0a url(../images/quote.gif) no-repeat 12px 12px;
+  background: #130d0a url(/images/quote.gif) no-repeat 12px 12px;
   font-weight: normal;
   font-size: 17px;
   line-height: 1.5em;
@@ -256,7 +256,7 @@ input.button {
   margin: 0;
   padding: 2px 3px;
   border: 1px solid #c96111;
-  background: #e2721b url(../images/button-bg.png) repeat-x;
+  background: #e2721b url(/images/button-bg.png) repeat-x;
   font: bold 11px 'Lucida Grande', Verdana, Helvetica, Sans-Serif;
   text-decoration: none;
   color: #fff;
@@ -270,7 +270,7 @@ input.button {
   width: 940px;
   margin: 0 auto;
   text-align: left;
-  background: url(../images/content-bg.jpg) no-repeat center 100%;
+  background: url(/images/content-bg.jpg) no-repeat center 100%;
 }
 
 /* header */
@@ -279,7 +279,7 @@ header {
   position: relative;
   margin: 0 auto 20px auto;
   height: 164px;
-  background: url(../images/header-bg.jpg) no-repeat center bottom;
+  background: url(/images/header-bg.jpg) no-repeat center bottom;
 }
 /* line 222, ../../app/assets/stylesheets/screen.scss */
 header h1#logo-text {
@@ -320,7 +320,7 @@ header #rss-feed {
 /* line 250, ../../app/assets/stylesheets/screen.scss */
 header #rss-feed a.feed {
   padding: 0 0 0 30px;
-  background: url(../images/feed-icon16.gif) no-repeat 5px center;
+  background: url(/images/feed-icon16.gif) no-repeat 5px center;
   font-weight: bold;
   text-transform: lowercase;
   color: #f0e8e8;
@@ -341,8 +341,11 @@ header nav ul {
   float: left;
   margin: 0;
   padding: 0;
-  width: 100%;
   list-style: none;
+}
+/* line 270, ../../app/assets/stylesheets/screen.scss */
+header nav ul.locales {
+  float: right;
 }
 /* line 271, ../../app/assets/stylesheets/screen.scss */
 header nav ul li {
@@ -366,11 +369,11 @@ header nav ul li a:hover, header nav ul li a:active {
 }
 /* line 286, ../../app/assets/stylesheets/screen.scss */
 header nav ul li.current {
-  background: url(../images/left-nav-bg.gif) no-repeat;
+  background: url(/images/left-nav-bg.gif) no-repeat;
 }
 /* line 288, ../../app/assets/stylesheets/screen.scss */
 header nav ul li.current a {
-  background: url(../images/right-nav-bg.gif) no-repeat right top;
+  background: url(/images/right-nav-bg.gif) no-repeat right top;
   color: #f0e8e8;
 }
 /* line 291, ../../app/assets/stylesheets/screen.scss */
@@ -384,7 +387,7 @@ header form#quick-search {
   border: none;
   width: 222px;
   height: 32px;
-  background: url(../images/header-search.png) no-repeat;
+  background: url(/images/header-search.png) no-repeat;
 }
 /* line 302, ../../app/assets/stylesheets/screen.scss */
 header form#quick-search p {
@@ -427,7 +430,7 @@ header form#quick-search label {
   margin: 0;
   padding-bottom: 20px;
   width: 940px;
-  background: url(../images/sep-bg.jpg) no-repeat center bottom;
+  background: url(/images/sep-bg.jpg) no-repeat center bottom;
 }
 
 /* line 338, ../../app/assets/stylesheets/screen.scss */
@@ -443,7 +446,7 @@ header form#quick-search label {
 /* line 346, ../../app/assets/stylesheets/screen.scss */
 #featured-ribbon {
   position: absolute;
-  background: url(../images/ribbon.png) no-repeat;
+  background: url(/images/ribbon.png) no-repeat;
   width: 99px;
   height: 98px;
   top: -1px;
@@ -491,7 +494,7 @@ header form#quick-search label {
   margin-top: 25px;
   padding: 5px 10px;
   border: 1px solid #c96111;
-  background: #e2721b url(../images/button-bg.png) repeat-x;
+  background: #e2721b url(/images/button-bg.png) repeat-x;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 10px;
@@ -503,7 +506,7 @@ header form#quick-search label {
 /* line 393, ../../app/assets/stylesheets/screen.scss */
 #featured a.more-link:hover {
   border: 1px solid #2f4c13;
-  background: #4a781d url(../images/button-hover-bg.png) repeat-x;
+  background: #4a781d url(/images/button-hover-bg.png) repeat-x;
 }
 
 /* Content */
@@ -591,12 +594,12 @@ header form#quick-search label {
 #main .block .blk-top p .comment {
   margin-left: 5px;
   padding: 0 0 5px 20px;
-  background: url(../images/comment.gif) no-repeat 0 1px;
+  background: url(/images/comment.gif) no-repeat 0 1px;
 }
 /* line 461, ../../app/assets/stylesheets/screen.scss */
 #main .block .blk-top p .datetime {
   padding: 0 0 5px 20px;
-  background: url(../images/clock.gif) no-repeat 0 0;
+  background: url(/images/clock.gif) no-repeat 0 0;
 }
 /* line 464, ../../app/assets/stylesheets/screen.scss */
 #main .block .blk-content {
@@ -645,7 +648,7 @@ header form#quick-search label {
   font-size: 11px;
   line-height: 20px;
   text-transform: uppercase;
-  background: url(../images/bullet.gif) no-repeat 0 14px;
+  background: url(/images/bullet.gif) no-repeat 0 14px;
 }
 /* line 500, ../../app/assets/stylesheets/screen.scss */
 .sidemenu ul li a:link, .sidemenu ul li a:visited {
@@ -683,7 +686,7 @@ footer {
   float: left;
   width: 100%;
   text-align: center;
-  background: url(../images/footer-bg.png) repeat-x;
+  background: url(/images/footer-bg.png) repeat-x;
   /* footer-list */
   /* footer-bottom */
 }
@@ -745,27 +748,27 @@ footer #footer-outer .footer-list ul li a {
 }
 /* line 572, ../../app/assets/stylesheets/screen.scss */
 footer #footer-outer .footer-list ul li .email {
-  background: url(../images/email.gif) no-repeat 0 center;
+  background: url(/images/email.gif) no-repeat 0 center;
   padding-left: 20px;
 }
 /* line 575, ../../app/assets/stylesheets/screen.scss */
 footer #footer-outer .footer-list ul li .rssfeed {
-  background: url(../images/feed-icon14.gif) no-repeat 0 center;
+  background: url(/images/feed-icon14.gif) no-repeat 0 center;
   padding-left: 20px;
 }
 /* line 578, ../../app/assets/stylesheets/screen.scss */
 footer #footer-outer .footer-list ul li .twitter {
-  background: url(../images/twitter.gif) no-repeat 0 center;
+  background: url(/images/twitter.gif) no-repeat 0 center;
   padding-left: 20px;
 }
 /* line 581, ../../app/assets/stylesheets/screen.scss */
 footer #footer-outer .footer-list ul li .github {
-  background: url(../images/github.gif) no-repeat 0 center;
+  background: url(/images/github.gif) no-repeat 0 center;
   padding-left: 20px;
 }
 /* line 584, ../../app/assets/stylesheets/screen.scss */
 footer #footer-outer .footer-list ul li .linkedin {
-  background: url(../images/linkedin.gif) no-repeat 0 center;
+  background: url(/images/linkedin.gif) no-repeat 0 center;
   padding-left: 20px;
 }
 /* line 588, ../../app/assets/stylesheets/screen.scss */
@@ -801,7 +804,7 @@ footer #footer-bottom .bottom-right {
 }
 /* line 610, ../../app/assets/stylesheets/screen.scss */
 footer #footer-bottom a.back-to-top {
-  background: url(../images/arrow-up.gif) no-repeat right center;
+  background: url(/images/arrow-up.gif) no-repeat right center;
   padding-right: 20px;
 }
 

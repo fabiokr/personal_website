@@ -19,6 +19,10 @@ PersonalWebsite::Application.routes.draw do
     end
   end
 
+  scope "(:locale)", :locale => /en|pt/ do
+    match 'home' => 'homes#index', :as => 'home'
+  end
+
   root :to => "homes#index"
 
   match '*a', :to => 'errors#404'

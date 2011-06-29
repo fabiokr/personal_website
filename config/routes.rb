@@ -13,6 +13,10 @@ PersonalWebsite::Application.routes.draw do
     resource :dashboard, :only => [:show]
     resource :demo, :only => [:show]
     resources :pages
+
+    namespace :blog do
+      resources :articles
+    end
   end
 
   root :to => "homes#index"

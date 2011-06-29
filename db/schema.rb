@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110529195652) do
+ActiveRecord::Schema.define(:version => 20110629020250) do
 
   create_table "admin_page_contents", :force => true do |t|
     t.integer  "page_id"
@@ -51,6 +51,23 @@ ActiveRecord::Schema.define(:version => 20110529195652) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "blog_articles", :force => true do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.string   "description"
+    t.string   "keywords"
+    t.text     "excerpt"
+    t.text     "body"
+    t.datetime "published_at"
+    t.boolean  "highlight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blog_articles", ["highlight"], :name => "index_blog_articles_on_highlight"
+  add_index "blog_articles", ["published_at"], :name => "index_blog_articles_on_published_at"
+  add_index "blog_articles", ["slug"], :name => "index_blog_articles_on_slug"
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                                 :null => false

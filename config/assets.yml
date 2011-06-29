@@ -18,5 +18,7 @@ javascripts:
     - 'public/javascripts/lib/plugins/jquery.equalHeight.js'
     - 'public/javascripts/admin.js'
   website:
+    - 'public/javascripts/lib/modernizr.js'
+    - 'public/javascripts/lib/selectivzr.js'
     - 'public/javascripts/application.js'
 

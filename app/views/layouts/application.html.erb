@@ -13,12 +13,12 @@
   </head>
 
   <body>
-    <div id="wrap">
-	    <div id="header">
+    <section id="wrap">
+	    <header>
 		    <h1 id="logo-text"><a href="/" title="Fabio Kreusch">fabio.kreusch</a></h1>
 		    <p id="slogan">Web developer</p>
 
-		    <div  id="nav">
+		    <nav>
 		      <%
             menu = ActiveSupport::OrderedHash.new
             menu['Home'] = {:url => root_path}
@@ -33,98 +33,100 @@
               </li>
 			      <% end %>
 			    </ul>
-		    </div>
+		    </nav>
 
 		    <!--<p id="rss-feed"><a href="index.html" class="feed">Grab the RSS Feed</a></p>-->
 
 		    <form id="quick-search" action="http://www.google.com/search" method="get" >
 			    <p>
-			    <label for="qsearch">Search:</label>
-			    <input class="tbox" id="qsearch" type="text" name="q" size="31" maxlength="255" value="Search..." title="Start typing and hit ENTER" />
-			    <input type="hidden" name="sitesearch" value="www.kreusch.com.br">
-			    <input class="btn" alt="Search" type="image" name="searchsubmit" title="Search" src="images/search.png" />
+			      <label for="qsearch">Search:</label>
+			      <input class="tbox" id="qsearch" type="text" name="q" size="31" maxlength="255" value="Search..." title="Start typing and hit ENTER" />
+			      <input type="hidden" name="sitesearch" value="www.kreusch.com.br">
+			      <input class="btn" alt="Search" type="image" name="searchsubmit" title="Search" src="images/search.png" />
 			    </p>
 		    </form>
-	    </div>
+	    </header>
 
       <%= yield %>
-    </div>
+    </section>
 
-    <div id="footer">
-	    <div id="footer-outer" class="clear"><div id="footer-wrap">
-		    <div class="col-a">
-			    <h3>Contact Info</h3>
-			    <p><strong>E-mail: </strong><a href="mailto:fabiokr@gmail.com">fabiokr@gmail.com</a></p>
-			    <p><strong>Location: </strong>Vancouver/Canada</p>
+    <footer>
+	    <section id="footer-outer" class="clear">
+	      <section id="footer-wrap">
+		      <section class="col-a">
+			      <h3>Contact Info</h3>
+			      <p><strong>E-mail: </strong><a href="mailto:fabiokr@gmail.com">fabiokr@gmail.com</a></p>
+			      <p><strong>Location: </strong>Vancouver/Canada</p>
 
-			    <h3>Follow Me</h3>
+			      <h3>Follow Me</h3>
 
-			    <div class="footer-list">
-				    <ul>
-					    <!--<li><a href="index.html" class="rssfeed">RSS Feed</a></li>-->
-					    <li><a href="https://github.com/fabiokr" target="_blank" class="github">Github</a></li>
-					    <li><a href="http://www.linkedin.com/in/fabiokreusch" target="_blank" class="linkedin">LinkedIn</a></li>
-				    </ul>
-			    </div>
-		    </div>
+			      <nav class="footer-list">
+				      <ul>
+					      <!--<li><a href="index.html" class="rssfeed">RSS Feed</a></li>-->
+					      <li><a href="https://github.com/fabiokr" target="_blank" class="github">Github</a></li>
+					      <li><a href="http://www.linkedin.com/in/fabiokreusch" target="_blank" class="linkedin">LinkedIn</a></li>
+				      </ul>
+			      </nav>
+		      </section>
 
-		    <div class="col-a">
-			    <h3>Site Links</h3>
+		      <section class="col-a">
+			      <h3>Site Links</h3>
 
-			    <div class="footer-list">
-				    <ul>
-		          <% menu.each do |title, options| %>
-		            <li>
-                  <%= link_to title.html_safe, options[:url], options[:options] %>
-                </li>
-		          <% end %>
-				    </ul>
-			    </div>
-		    </div>
+			      <nav class="footer-list">
+				      <ul>
+		            <% menu.each do |title, options| %>
+		              <li>
+                    <%= link_to title.html_safe, options[:url], options[:options] %>
+                  </li>
+		            <% end %>
+				      </ul>
+			      </nav>
+		      </section>
 
-		    <div class="col-a">
-			    <h3>Web Resource</h3>
-			    <div class="footer-list">
-            <ul>
-					    <li><a href="http://rubyonrails.org/" title="Ruby on Rails" target="_blank">Ruby on Rails</a></li>
-					    <li><a href="http://guides.rubyonrails.org/" title="Rails Guides" target="_blank">Rails Guides</a></li>
-					    <li><a href="http://www.heroku.com" title="Heroku" target="_blank">Heroku</a></li>
-				    </ul>
-			    </div>
-		    </div>
+		      <section class="col-a">
+			      <h3>Web Resource</h3>
+			      <nav class="footer-list">
+              <ul>
+					      <li><a href="http://rubyonrails.org/" title="Ruby on Rails" target="_blank">Ruby on Rails</a></li>
+					      <li><a href="http://guides.rubyonrails.org/" title="Rails Guides" target="_blank">Rails Guides</a></li>
+					      <li><a href="http://www.heroku.com" title="Heroku" target="_blank">Heroku</a></li>
+				      </ul>
+			      </nav>
+		      </section>
 
-		    <div class="col-b">
-			    <h3>About</h3>
+		      <article class="col-b">
+			      <h3>About</h3>
 
-			    <p>
-			      <a href="index.html"><img src="http://www.gravatar.com/avatar/67ac8dcae2fde06e9b4833e9d3796e4c?s=80" width="40" height="40" alt="firefox" class="float-left" /></a>
-			      Fabio Kreusch is a programmer currently living in Vancouver/Canada. He enjoys a good reading, going to the theater, playing video games or just checking another new programming thing.
-			    </p>
+			      <p>
+			        <a href="index.html"><img src="http://www.gravatar.com/avatar/67ac8dcae2fde06e9b4833e9d3796e4c?s=80" width="40" height="40" alt="firefox" class="float-left" /></a>
+			        Fabio Kreusch is a programmer currently living in Vancouver/Canada. He enjoys a good reading, going to the theater, playing video games or just checking another new programming thing.
+			      </p>
 
-		    </div>
+		      </article>
 
-		    <div class="fix"></div>
+		      <div class="fix"></div>
 
-		    <div id="footer-bottom">
-			    <div class="bottom-left">
-				    <p>
-				    This work by <a href="http://www.kreusch.com.br">Fabio Kreusch</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Atribuição 3.0 Unported License</a>.
-				    <br/>
-				    <a href="http://www.bluewebtemplates.com/" title="Website Templates">Website templates</a> by <a href="http://www.styleshout.com/">styleshout</a>
-				    </p>
-			    </div>
+		      <section id="footer-bottom">
+			      <section class="bottom-left">
+				      <p>
+				      This work by <a href="http://www.kreusch.com.br">Fabio Kreusch</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Atribuição 3.0 Unported License</a>.
+				      <br/>
+				      <a href="http://www.bluewebtemplates.com/" title="Website Templates">Website templates</a> by <a href="http://www.styleshout.com/">styleshout</a>
+				      </p>
+			      </section>
 
-			    <div class="bottom-right">
-				    <p>
-					    <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
-		       		<a href="http://validator.w3.org/check/referer">XHTML</a>	|
-					    <a href="/">Home</a> |
-					    <strong><a href="#top" class="back-to-top">Back to Top</a></strong>
-				    </p>
-			    </div>
-		    </div>
-	    </div></div>
-    </div>
+			      <section class="bottom-right">
+				      <p>
+					      <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
+		         		<a href="http://validator.w3.org/check/referer">XHTML</a>	|
+					      <a href="/">Home</a> |
+					      <strong><a href="#top" class="back-to-top">Back to Top</a></strong>
+				      </p>
+			      </section>
+		      </section>
+	      </section>
+	    </section>
+    </footer>
     <%= include_javascripts :website %>
   </body>
 </html>

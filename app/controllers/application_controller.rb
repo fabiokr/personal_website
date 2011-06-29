@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   before_filter do
-    I18n.locale = params[:locale]
+    I18n.locale = params[:locale] || Rails.configuration.i18n.locale
   end
 
   protected

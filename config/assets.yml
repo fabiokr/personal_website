@@ -20,5 +20,6 @@ javascripts:
   website:
     - 'public/javascripts/lib/modernizr.js'
     - 'public/javascripts/lib/selectivzr.js'
+    - 'public/javascripts/lib/jquery.js'
     - 'public/javascripts/application.js'
 

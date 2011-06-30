@@ -1,4 +1,4 @@
-ActiveAdminBase::Application.routes.draw do
+PersonalWebsite::Application.routes.draw do
 
   devise_for :admin_users, :path => 'admin'
 
@@ -15,6 +15,7 @@ ActiveAdminBase::Application.routes.draw do
     resources :pages
   end
 
-  resources :homes, :only => [:index]
   root :to => "homes#index"
+
+  match '*a', :to => 'errors#404'
 end

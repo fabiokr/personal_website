@@ -1,4 +1,4 @@
-ActiveAdminBase::Application.configure do
+PersonalWebsite::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # The production environment is meant for finished, "live" apps.
@@ -29,7 +29,7 @@ ActiveAdminBase::Application.configure do
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
@@ -47,9 +47,20 @@ ActiveAdminBase::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
+  config.action_mailer.default_url_options = { :host => 'www.kreusch.com.br' }
+
   config.before_configuration do
     I18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
     I18n.locale = 'pt-PT'
     I18n.reload!
   end
 end
+
+ActionMailer::Base.smtp_settings = {
+  :address        => "smtp.sendgrid.net",
+  :port           => "25",
+  :authentication => :plain,
+  :user_name      => ENV['SENDGRID_USERNAME'],
+  :password       => ENV['SENDGRID_PASSWORD'],
+  :domain         => ENV['SENDGRID_DOMAIN']
+}

@@ -36,3 +36,8 @@ group :development, :test do
   gem 'guard'
   gem 'turn', :require => false
 end
+
+group :production do
+  gem 'pg'
+  gem 'newrelic_rpm'
+end

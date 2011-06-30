@@ -21,28 +21,40 @@
 		    <nav>
 		      <%
             menu = ActiveSupport::OrderedHash.new
-            menu['Home'] = {:url => root_path}
+            menu[t('menu.home')] = {:url => home_path(:locale => I18n.locale)}
             #menu['Blog'] = {:url => '/blog'}
-            menu['Resume'] = {:url => 'http://www.linkedin.com/in/fabiokreusch', :options => {:target => '_blank'}}
-            menu['Contact'] = {:url => 'mailto:fabiokr@gmail.com'}
+            menu[t('menu.resume')] = {:url => 'http://www.linkedin.com/in/fabiokreusch', :options => {:target => '_blank'}}
+            menu[t('menu.contact')] = {:url => 'mailto:fabiokr@gmail.com'}
           %>
-			    <ul>
+			    <ul class="menu">
 			      <% menu.each do |title, options| %>
 			        <li class="<%= current_page?(options[:url]) ? 'current' : '' %>">
                 <%= link_to title.html_safe, options[:url], options[:options] %>
               </li>
 			      <% end %>
 			    </ul>
+			    <%
+            locales = ActiveSupport::OrderedHash.new
+            locales['English'] = 'en'
+            locales['Português'] = 'pt'
+          %>
+		      <ul class="locales">
+		        <% locales.each do |title, locale| %>
+		          <li>
+		            <%= link_to title, home_path(:locale => locale) %>
+		          </li>
+		        <% end %>
+		      </ul>
 		    </nav>
 
 		    <!--<p id="rss-feed"><a href="index.html" class="feed">Grab the RSS Feed</a></p>-->
 
 		    <form id="quick-search" action="http://www.google.com/search" method="get" >
 			    <p>
-			      <label for="qsearch">Search:</label>
-			      <input class="tbox" id="qsearch" type="text" name="q" size="31" maxlength="255" value="Search..." title="Start typing and hit ENTER" />
+			      <label for="qsearch"><%= t('search') %>:</label>
+			      <input class="tbox" id="qsearch" type="text" name="q" size="31" maxlength="255" value="<%= t('search') %>..." title="<%= t('search_hint') %>" />
 			      <input type="hidden" name="sitesearch" value="www.kreusch.com.br">
-			      <input class="btn" alt="Search" type="image" name="searchsubmit" title="Search" src="images/search.png" />
+			      <input class="btn" alt="Search" type="image" name="searchsubmit" title="Search" src="/images/search.png" />
 			    </p>
 		    </form>
 	    </header>
@@ -54,11 +66,10 @@
 	    <section id="footer-outer" class="clear">
 	      <section id="footer-wrap">
 		      <section class="col-a">
-			      <h3>Contact Info</h3>
-			      <p><strong>E-mail: </strong><a href="mailto:fabiokr@gmail.com">fabiokr@gmail.com</a></p>
-			      <p><strong>Location: </strong>Vancouver/Canada</p>
+			      <h3><%= t('contact_info') %></h3>
+			      <%= managable_layout_content_for :contact_info %>
 
-			      <h3>Follow Me</h3>
+			      <h3><%= t('follow_me') %></h3>
 
 			      <nav class="footer-list">
 				      <ul>
@@ -70,7 +81,7 @@
 		      </section>
 
 		      <section class="col-a">
-			      <h3>Site Links</h3>
+			      <h3><%= t('site_links') %></h3>
 
 			      <nav class="footer-list">
 				      <ul>
@@ -84,7 +95,7 @@
 		      </section>
 
 		      <section class="col-a">
-			      <h3>Web Resource</h3>
+			      <h3><%= t('web_resource') %></h3>
 			      <nav class="footer-list">
               <ul>
 					      <li><a href="http://rubyonrails.org/" title="Ruby on Rails" target="_blank">Ruby on Rails</a></li>
@@ -95,13 +106,8 @@
 		      </section>
 
 		      <article class="col-b">
-			      <h3>About</h3>
-
-			      <p>
-			        <a href="index.html"><img src="http://www.gravatar.com/avatar/67ac8dcae2fde06e9b4833e9d3796e4c?s=80" width="40" height="40" alt="firefox" class="float-left" /></a>
-			        Fabio Kreusch is a programmer currently living in Vancouver/Canada. He enjoys a good reading, going to the theater, playing video games or just checking another new programming thing.
-			      </p>
-
+			      <h3><%= t('about') %></h3>
+            <%= managable_layout_content_for :about %>
 		      </article>
 
 		      <div class="fix"></div>
@@ -109,6 +115,7 @@
 		      <section id="footer-bottom">
 			      <section class="bottom-left">
 				      <p>
+
 				      This work by <a href="http://www.kreusch.com.br">Fabio Kreusch</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Atribuição 3.0 Unported License</a>.
 				      <br/>
 				      <a href="http://www.bluewebtemplates.com/" title="Website Templates">Website templates</a> by <a href="http://www.styleshout.com/">styleshout</a>
@@ -118,9 +125,9 @@
 			      <section class="bottom-right">
 				      <p>
 					      <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> |
-		         		<a href="http://validator.w3.org/check/referer">XHTML</a>	|
-					      <a href="/">Home</a> |
-					      <strong><a href="#top" class="back-to-top">Back to Top</a></strong>
+		         		<a href="http://validator.w3.org/check/referer">HTML</a>	|
+					      <a href="/"><%= t('menu.home') %></a> |
+					      <strong><a href="#top" class="back-to-top"><%= t('back_to_top') %></a></strong>
 				      </p>
 			      </section>
 		      </section>

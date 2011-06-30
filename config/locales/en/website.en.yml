@@ -1,3 +1,15 @@
 en:
-  app: My Website
+  app: Fabio Kreusch
+  menu:
+    home: Home
+    resume: Resume
+    contact: Contact
+  search: Search
+  search_hint: Start typing and hit ENTER
+  contact_info: Contact Info
+  follow_me: Follow Me
+  site_links: Site Links
+  web_resource: Web Resource
+  about: About
+  back_to_top: Back to Top
 

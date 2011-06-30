@@ -1,0 +1,15 @@
+pt:
+  app: Fabio Kreusch
+  menu:
+    home: Início
+    resume: Currículo
+    contact: Contato
+  search: Pesquisar
+  search_hint: Digite e pressione ENTER
+  contact_info: Informações de Contato
+  follow_me: Siga-me
+  site_links: Links do Site
+  web_resource: Recursos da Web
+  about: Sobre
+  back_to_top: Voltar ao Topo
+

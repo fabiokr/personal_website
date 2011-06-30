@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   layout :layout
 
   managable_content_ignore_namespace 'admin', 'devise', 'ckeditor', 'jammit', 'errors'
+  managable_layout_content_for :contact_info, :about
 
   respond_to :html
 
@@ -14,6 +15,10 @@ class ApplicationController < ActionController::Base
     rescue_from ActionController::RoutingError, :with => :render_not_found
     rescue_from ActionController::UnknownController, :with => :render_not_found
     rescue_from ActionController::UnknownAction, :with => :render_not_found
+  end
+
+  before_filter do
+    I18n.locale = params[:locale] || Rails.configuration.i18n.locale
   end
 
   protected

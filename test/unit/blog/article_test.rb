@@ -17,4 +17,10 @@ class Blog::ArticleTest < ActiveSupport::TestCase
   end
 
   should_not allow_value('invalid').for(:locale)
+
+  test 'should have for_published_and_slug scope' do
+    post = Factory(:blog_article, :published_at => DateTime.new(2011, 6, 30), :title => "My Article")
+
+    assert_equal post, Blog::Article.for_published_and_slug(post.published_at, post.to_url_param).first
+  end
 end

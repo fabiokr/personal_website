@@ -23,6 +23,8 @@ PersonalWebsite::Application.routes.draw do
     match 'home' => 'homes#index', :as => 'home'
   end
 
+  match ":year/:month/:day/:slug" => "blog#show", :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
+
   root :to => "homes#index"
 
   match '*a', :to => 'errors#404'

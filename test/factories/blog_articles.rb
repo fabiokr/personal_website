@@ -3,4 +3,5 @@ Factory.define :blog_article, :class => Blog::Article do |f|
   f.excerpt       { Faker::Lorem.sentences.join(' ') }
   f.body          { Faker::Lorem.paragraphs.join(' ') }
   f.published_at  { rand > 0.5 ? DateTime.now + rand : nil }
+  f.locale        { Rails.configuration.available_locales.sample }
 end

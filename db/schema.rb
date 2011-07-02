@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110629023925) do
+ActiveRecord::Schema.define(:version => 20110702054654) do
 
   create_table "admin_page_contents", :force => true do |t|
     t.integer  "page_id"
@@ -64,9 +64,11 @@ ActiveRecord::Schema.define(:version => 20110629023925) do
     t.boolean  "highlight"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "locale"
   end
 
   add_index "blog_articles", ["highlight"], :name => "index_blog_articles_on_highlight"
+  add_index "blog_articles", ["published_at", "locale"], :name => "index_blog_articles_on_published_at_and_locale"
   add_index "blog_articles", ["published_at"], :name => "index_blog_articles_on_published_at"
   add_index "blog_articles", ["slug"], :name => "index_blog_articles_on_slug"
 

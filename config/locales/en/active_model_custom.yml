@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    models:
+      blog:
+        article: Blog Article
+      attributes:
+        blog:
+          article:
+            <<: *general
+

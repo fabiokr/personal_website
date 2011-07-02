@@ -18,3 +18,12 @@ page.update_attributes(:title => 'Fabio Kreusch', :description => 'Fabio Kreusch
 #Home page
 page = Admin::Page.for_controller(HomesController.controller_path)
 page.update_attributes(:title => 'Home')
+
+#Blog Articles
+(1..3).each do |i|
+  Blog::Article.new(:title => Faker::Lorem.sentence, :excerpt => Faker::Lorem.paragraphs.join(' '), :body => Faker::Lorem.paragraphs.join(' '), :published_at => (DateTime.now - rand), 'locale' => 'pt').save!
+end
+
+(1..3).each do |i|
+  Blog::Article.new(:title => Faker::Lorem.sentence, :excerpt => Faker::Lorem.paragraphs.join(' '), :body => Faker::Lorem.paragraphs.join(' '), :published_at => (DateTime.now - rand), 'locale' => 'en').save!
+end

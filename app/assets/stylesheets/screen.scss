@@ -411,9 +411,9 @@ header {
 
 /* Main */
 
-#main {
-  /*width: 600px;*/
-  /*float: left;*/
+.main {
+  width: 600px;
+  float: left;
   padding-top: 5px;
   h2 {
     color: #f0e8e8;
@@ -472,7 +472,7 @@ header {
 
 /* sidebar */
 
-#sidebar {
+.sidebar {
   float: right;
   width: 290px;
   padding-top: 5px;
@@ -824,4 +824,9 @@ p.thumbs {
     clear: both;
     height: 0;
     content: " "; } }
+
+.tag1 { font-size: 1.0em; }
+.tag2 { font-size: 1.2em; }
+.tag3 { font-size: 1.4em; }
+.tag4 { font-size: 1.6em; }
 

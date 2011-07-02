@@ -1,21 +1,26 @@
-<ul class="archive">
-  <% @articles.each do |article| %>
-    <li>
-      <article class="post">
-	      <h2><%= link_to article.title, blog_post_url(article) %></h2>
-
-	      <%= article.body.html_safe %>
-
-	      <p class="postmeta">
-			    <span class="date"><%= l(article.published_at, :format => :long) %></span>
-		    </p>
-      </article>
-    </li>
+<section class="main">
+  <% if params[:tag] %>
+    <h2><%= t('posts_for_tag', :tag => params[:tag])  %></h2>
   <% end %>
-</ul>
+    <% @articles.each do |article| %>
+      <article class="post">
+        <h3><%= link_to article.title, blog_post_url(article) %></h3>
 
-<nav class="pagination clear">
-  <%= previous_page_link @articles %>
-  <%= next_page_link @articles %>
-</nav>
+        <%= article.body.html_safe %>
+
+        <p class="postmeta">
+	        <span class="date"><%= l(article.published_at, :format => :long) %></span>
+        </p>
+      </article>
+    <% end %>
+
+  <nav class="pagination clear">
+    <%= previous_page_link @articles %>
+    <%= next_page_link @articles %>
+  </nav>
+</section>
+
+<aside class="sidebar">
+  <%= render 'blog/tag_cloud' %>
+</aside>
 

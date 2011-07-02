@@ -56,6 +56,7 @@ module ApplicationHelper
   def previous_page_link(scope)
     if scope.num_pages > 1 && !scope.first_page?
       url = params.merge('page' => (scope.current_page - 1))
+      puts url
       link_to(t('previous_page').html_safe, url)
     end
   end
@@ -63,8 +64,11 @@ module ApplicationHelper
   def next_page_link(scope)
     if scope.num_pages > 1 && !scope.last_page?
       url = params.merge('page' => (scope.current_page + 1))
+      puts url
       link_to(t('next_page').html_safe, url)
     end
   end
+
+  include ActsAsTaggableOn::TagsHelper
 
 end

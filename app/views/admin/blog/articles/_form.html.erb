@@ -11,8 +11,11 @@
             <%= f.object.locale %>
           <% end %>
         </fieldset>
+        <fieldset>
+          <%= f.label :tag_list %>
+          <%= editable ? f.text_field(:tag_list) : f.object.tag_list %>
+        </fieldset>
 			  <%= render 'seo_inputs', :f => f, :editable => editable %>
-			  <%= content_form_tag f, :excerpt, editable %>
 			  <%= content_form_tag f, :body, editable %>
         <div class="clear"></div>
 		  </div>

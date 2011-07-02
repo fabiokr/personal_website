@@ -1,7 +1,7 @@
 class BlogController < ApplicationController
 
   def index
-    @articles = Blog::Article.for_locale(params[:locale]).published.sorted.limit(10)
+    @articles = Blog::Article.for_locale(params[:locale]).published.sorted.page(params[:page])
   end
 
   def show

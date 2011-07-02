@@ -49,4 +49,22 @@ module ApplicationHelper
     end
   end
 
+  def blog_post_url(article)
+    blog_post_path(:year => article.published_at.strftime('%Y'), :month => article.published_at.strftime('%m'), :day => article.published_at.strftime('%d'), :slug => article.to_url_param)
+  end
+
+  def previous_page_link(scope)
+    if scope.num_pages > 1 && !scope.first_page?
+      url = params.merge('page' => (scope.current_page - 1))
+      link_to(t('previous_page').html_safe, url)
+    end
+  end
+
+  def next_page_link(scope)
+    if scope.num_pages > 1 && !scope.last_page?
+      url = params.merge('page' => (scope.current_page + 1))
+      link_to(t('next_page').html_safe, url)
+    end
+  end
+
 end

@@ -1003,13 +1003,13 @@ ul.archive li .post-details {
 
 /* pagenavigation */
 /* line 755, ../../app/assets/stylesheets/screen.scss */
-.navigation {
+.pagination {
   margin: 10px 20px;
   padding: 0;
   width: 560px;
 }
 /* line 760, ../../app/assets/stylesheets/screen.scss */
-.navigation a:link, .navigation a:visited {
+.pagination a:link, .pagination a:visited {
   float: left;
   display: block;
   margin: 10px 10px 0 0;
@@ -1022,7 +1022,7 @@ ul.archive li .post-details {
   color: #fff;
 }
 /* line 771, ../../app/assets/stylesheets/screen.scss */
-.navigation a:hover {
+.pagination a:hover {
   border: 1px solid #5A9223;
   background-color: #4C7B1E;
 }

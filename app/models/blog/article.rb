@@ -6,4 +6,6 @@ class Blog::Article < ActiveRecord::Base
 
   scope :for_locale, lambda {|locale| where(:locale => locale)}
   scope :for_published_and_slug, lambda {|published_at, slug| where(:published_at => (published_at.beginning_of_day)..(published_at.end_of_day), :slug => slug) }
+
+  paginates_per 10
 end

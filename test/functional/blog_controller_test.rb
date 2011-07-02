@@ -14,7 +14,7 @@ class BlogControllerTest < ActionController::TestCase
 
     get :index, :locale => locale
 
-    assert_equal Blog::Article.for_locale(locale).published.sorted.limit(10), assigns[:articles]
+    assert_equal Blog::Article.for_locale(locale).published.sorted.page(nil), assigns[:articles]
   end
 
   test 'on show should list published article' do

@@ -28,7 +28,7 @@ class PagesTest < ActionDispatch::IntegrationTest
         visit "/#{locale}/blog"
 
         assert has_content?(article.title)
-        assert has_content?(article.excerpt)
+        assert has_content?(article.body)
 
         click_link article.title
 

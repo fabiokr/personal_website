@@ -9,24 +9,33 @@ class PagesTest < ActionDispatch::IntegrationTest
   end
 
   test '/en/home should be accessible' do
-    visit '/en/home'
+    Rails.configuration.available_locales.each do |locale|
+      visit "/#{locale}/home"
 
-    assert_equal 200, page.status_code
+      assert_equal 200, page.status_code
+    end
   end
 
-  test '/pt/home should be accessible' do
-    visit '/pt/home'
+  test 'should be able to view blog article' do
+    locale_articles = {}
 
-    assert_equal 200, page.status_code
-  end
+    Rails.configuration.available_locales.each do |locale|
+      locale_articles[locale] = (1..5).map{|i| Factory(:blog_article, :published_at => DateTime.now, :locale => locale)}
+    end
 
-  test '/2011/06/30/my-article should be accessible' do
-    post = Factory(:blog_article, :published_at => DateTime.new(2011, 6, 30), :title => "My Article")
+    locale_articles.each do |locale, articles|
+      articles.each do |article|
+        visit "/#{locale}/blog"
 
-    visit '/2011/06/30/my-article'
+        assert has_content?(article.title)
+        assert has_content?(article.excerpt)
 
-    assert has_content?(post.title)
-    assert has_content?(post.body)
+        click_link article.title
+
+        assert has_content?(article.title)
+        assert has_content?(article.body)
+      end
+    end
   end
 
 end

@@ -1,0 +1,17 @@
+<% @articles.each do |article| %>
+  <% article_url = blog_post_path(:year => article.published_at.strftime('%Y'), :month => article.published_at.strftime('%m'), :day => article.published_at.strftime('%d'), :slug => article.to_url_param) %>
+  <article class="post">
+
+	  <h2><%= link_to article.title, article_url %></h2>
+
+	  <p class="post-info">Posted by <a href="index.html">erwin</a> | Filed under <a href="index.html">templates</a>, <a href="index.html">internet</a></p>
+
+	  <%= article.excerpt.html_safe %>
+
+	  <p class="postmeta">
+			<span class="date"><%= l(article.published_at, :format => :long) %></span> |
+			<%= link_to t('read_more'), article_url %>
+		</p>
+  </article>
+<% end %>
+

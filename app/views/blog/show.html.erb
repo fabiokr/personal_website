@@ -1,9 +1,14 @@
 <article class="post">
 
-	<h2><%= @article.title %></h2>
+	<h2><a href="#"><%= @article.title %></a></h2>
 
 	<p class="post-info">Posted by <a href="index.html">erwin</a> | Filed under <a href="index.html">templates</a>, <a href="index.html">internet</a></p>
 
 	<%= @article.body.html_safe %>
+
+	<p class="postmeta">
+		<span class="date"><%= l(@article.published_at, :format => :long) %></span> |
+		<%= link_to t('back'), :back %>
+	</p>
 </article>
 

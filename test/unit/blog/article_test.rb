@@ -18,6 +18,15 @@ class Blog::ArticleTest < ActiveSupport::TestCase
 
   should_not allow_value('invalid').for(:locale)
 
+  test 'should have for_locale scope' do
+    Rails.configuration.available_locales.each do |locale|
+      Factory(:blog_article, :published_at => DateTime.new(2011, 6, 30), :locale => locale)
+    end
+
+    locale = Rails.configuration.available_locales
+    assert_equal Blog::Article.where(:locale => locale), Blog::Article.for_locale(locale)
+  end
+
   test 'should have for_published_and_slug scope' do
     post = Factory(:blog_article, :published_at => DateTime.new(2011, 6, 30), :title => "My Article")
 

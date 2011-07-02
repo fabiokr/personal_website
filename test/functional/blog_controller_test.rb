@@ -2,8 +2,11 @@ require 'test_helper'
 
 class BlogControllerTest < ActionController::TestCase
   def setup
-    @published_articles   = (1..15).map{|i| Factory(:blog_article, :published_at => DateTime.now)}
-    @unpublished_articles = (1..15).map{|i| Factory(:blog_article, :published_at => false)}
+    @published_articles, @unpublished_articles = [], []
+    locale = Rails.configuration.available_locales.each do |locale|
+      @published_articles   += (1..15).map{|i| Factory(:blog_article, :published_at => DateTime.now, :locale => locale)}
+      @unpublished_articles += (1..15).map{|i| Factory(:blog_article, :published_at => nil, :locale => locale)}
+    end
   end
 
   test 'on index should list articles for the locale' do

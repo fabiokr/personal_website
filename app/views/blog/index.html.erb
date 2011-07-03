@@ -9,7 +9,7 @@
         <%= article.body.html_safe %>
 
         <p class="postmeta">
-	        <span class="date"><%= l(article.published_at, :format => :long) %></span>
+	        <span class="date"><%= l(article.published_at, :format => :long) %></span> | <%= link_to t('comment'), blog_post_path(blog_post_params(article).merge('anchor' => 'disqus_thread')) %>
         </p>
       </article>
     <% end %>

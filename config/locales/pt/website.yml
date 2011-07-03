@@ -17,4 +17,5 @@ pt:
   previous_page: "&laquo; Posts Novos"
   next_page: "Posts Antigos &raquo;"
   posts_for_tag: Posts com a tag '%{tag}'
+  comment: Comentários
 

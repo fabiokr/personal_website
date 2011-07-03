@@ -17,4 +17,5 @@ en:
   previous_page: "&laquo; Newer Posts"
   next_page: "Older Posts &raquo;"
   posts_for_tag: Posts tagged with '%{tag}'
+  comment: Comments
 

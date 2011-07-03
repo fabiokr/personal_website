@@ -49,8 +49,8 @@ module ApplicationHelper
     end
   end
 
-  def blog_post_url(article)
-    blog_post_path(:year => article.published_at.strftime('%Y'), :month => article.published_at.strftime('%m'), :day => article.published_at.strftime('%d'), :slug => article.to_url_param)
+  def blog_post_params(article)
+    {:year => article.published_at.strftime('%Y'), :month => article.published_at.strftime('%m'), :day => article.published_at.strftime('%d'), :slug => article.to_url_param}
   end
 
   def previous_page_link(scope)

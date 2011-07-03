@@ -4,7 +4,7 @@
   <% end %>
     <% @articles.each do |article| %>
       <article class="post">
-        <h3><%= link_to article.title, blog_post_url(article) %></h3>
+        <h3><%= link_to article.title, blog_post_path(blog_post_params(article)) %></h3>
 
         <%= article.body.html_safe %>
 

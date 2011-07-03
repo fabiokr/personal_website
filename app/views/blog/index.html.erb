@@ -6,6 +6,13 @@
       <article class="post">
         <h3><%= link_to article.title, blog_post_path(blog_post_params(article)) %></h3>
 
+        <p class="post-info">
+          Tags:
+          <% article.tags.each do |tag| %>
+            <%= link_to tag.name, blog_tag_path(:locale => I18n.locale, :tag => tag.name) %>
+          <% end %>
+        </p>
+
         <%= article.body.html_safe %>
 
         <p class="postmeta">

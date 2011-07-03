@@ -1,9 +1,8 @@
 class BlogController < ApplicationController
 
-  before_filter :tags
-
   def index
     @articles = Blog::Article.for_locale(params[:locale]).published.sorted.page(params[:page])
+    @tags = tags
   end
 
   def show
@@ -12,11 +11,12 @@ class BlogController < ApplicationController
     end
 
     I18n.locale = @article.locale
+    @tags = tags
   end
 
   private
 
   def tags
-    @tags = Blog::Article.tag_counts_on(:tags, :conditions => {:locale => params[:locale]})
+    Blog::Article.tag_counts_on(:tags, :conditions => {:locale => I18n.locale})
   end
 end

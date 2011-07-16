@@ -32,6 +32,6 @@ class ApplicationController < ActionController::Base
   end
 
   def layout
-    devise_controller? ? 'login' : 'application'
+    'application'
   end
 end

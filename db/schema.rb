@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110702220346) do
+ActiveRecord::Schema.define(:version => 20110713034819) do
 
   create_table "admin_page_contents", :force => true do |t|
     t.integer  "page_id"
@@ -36,12 +36,9 @@ ActiveRecord::Schema.define(:version => 20110702220346) do
   add_index "admin_pages", ["controller_path", "locale"], :name => "index_admin_pages_on_controller_path_and_locale", :unique => true
 
   create_table "admin_users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
+    t.string   "email",               :default => "", :null => false
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
+    t.integer  "sign_in_count",       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -51,7 +48,6 @@ ActiveRecord::Schema.define(:version => 20110702220346) do
   end
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
-  add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
   create_table "blog_articles", :force => true do |t|
     t.string   "title"

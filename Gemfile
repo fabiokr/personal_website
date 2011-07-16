@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.9'
 
 #libraries
-gem 'devise'
+gem 'omniauth'
 gem 'inherited_resources'
 gem 'render_inheritable'
 gem 'responders'

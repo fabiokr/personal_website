@@ -47,7 +47,5 @@ module PersonalWebsite
     config.generators do |g|
       g.test_framework  :test_unit, :fixture_replacement => :factory_girl
     end
-
-    config.google_account = 'fabiokr@gmail.com'
   end
 end

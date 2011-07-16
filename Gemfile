@@ -16,6 +16,7 @@ gem 'paperclip'
 gem 'jammit'
 gem 'breadcrumbs_on_rails'
 gem 'cells'
+gem 'thin'
 
 #views
 gem 'jquery-rails'

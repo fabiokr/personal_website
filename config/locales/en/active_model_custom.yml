@@ -6,5 +6,16 @@ en:
       attributes:
         blog:
           article:
-            <<: *general
-
+            title: Title
+            excerpt: Excerpt
+            body: Content
+            description: Description
+            keywords: Keywords
+            published: Published
+            published_at: Published at
+            scheduled_to: Scheduled to
+            highlight: Highlight
+            updated_at: Updated at
+            created_at: Created at
+            locale: Locale
+            url: Url

@@ -20,7 +20,7 @@
 	<section id="secondary_bar">
 		<div class="user">
 			<p><%= link_to current_admin_user.email, edit_admin_user_path(current_admin_user) %></p>
-      <%= link_to t('admin.sign_out'), destroy_admin_user_session_path, :class => 'logout_user', :title => t('admin.sign_out') %>
+      <%= link_to t('admin.sign_out'), admin_user_session_path, :method => :delete, :class => 'logout_user', :title => t('admin.sign_out') %>
 		</div>
 		<div class="breadcrumbs_container">
       <nav class="breadcrumbs">

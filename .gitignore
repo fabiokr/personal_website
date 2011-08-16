@@ -1,8 +1,8 @@
 .bundle
+.sass-cache
 config/database.yml
 db/*.sqlite3
 log/*.log
 tmp/
 public/stylesheets/admin/**/*
 public/ckeditor_assets/**/*
-

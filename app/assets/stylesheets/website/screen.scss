@@ -16,7 +16,7 @@ body {
   color: #91807F;
   margin: 0;
   padding: 0;
-  background: #1d140f url(/images/bg.gif) repeat-x;
+  background: #1d140f url(/assets/bg.gif) repeat-x;
   text-align: center; }
 
 /* links */
@@ -120,7 +120,7 @@ blockquote {
   margin: 10px 20px;
   padding: 15px 15px 15px 32px;
   border: 1px solid #251a14;
-  background: #130d0a url(/images/quote.gif) no-repeat 12px 12px;
+  background: #130d0a url(/assets/quote.gif) no-repeat 12px 12px;
   font-weight: normal;
   font-size: 17px;
   line-height: 1.5em;
@@ -197,7 +197,7 @@ input.button {
   margin: 0;
   padding: 2px 3px;
   border: 1px solid #c96111;
-  background: #e2721b url(/images/button-bg.png) repeat-x;
+  background: #e2721b url(/assets/button-bg.png) repeat-x;
   font: bold 11px 'Lucida Grande', Verdana, Helvetica, Sans-Serif;
   text-decoration: none;
   color: #fff; }
@@ -210,7 +210,7 @@ input.button {
   width: 940px;
   margin: 0 auto;
   text-align: left;
-  /*background: url(/images/content-bg.jpg) no-repeat center 100%; */
+  /*background: url(/assets/content-bg.jpg) no-repeat center 100%; */
 }
 
 /* header */
@@ -219,7 +219,7 @@ header {
   position: relative;
   margin: 0 auto 20px auto;
   height: 164px;
-  background: url(/images/header-bg.jpg) no-repeat center bottom;
+  background: url(/assets/header-bg.jpg) no-repeat center bottom;
   h1#logo-text {
     margin: 0;
     padding: 0;
@@ -250,7 +250,7 @@ header {
     z-index: 99999;
     a.feed {
       padding: 0 0 0 30px;
-      background: url(/images/feed-icon16.gif) no-repeat 5px center;
+      background: url(/assets/feed-icon16.gif) no-repeat 5px center;
       font-weight: bold;
       text-transform: lowercase;
       color: #f0e8e8; } }
@@ -285,9 +285,9 @@ header {
             border: none;
             color: #fff; } }
         &.current {
-          background: url(/images/left-nav-bg.gif) no-repeat;
+          background: url(/assets/left-nav-bg.gif) no-repeat;
           a {
-            background: url(/images/right-nav-bg.gif) no-repeat right top;
+            background: url(/assets/right-nav-bg.gif) no-repeat right top;
             color: #f0e8e8; } } } } }
   form#quick-search {
     position: absolute;
@@ -299,7 +299,7 @@ header {
     border: none;
     width: 222px;
     height: 32px;
-    background: url(/images/header-search.png) no-repeat;
+    background: url(/assets/header-search.png) no-repeat;
     p {
       margin: 0;
       padding: 0;
@@ -334,7 +334,7 @@ header {
   margin: 0;
   padding-bottom: 20px;
   width: 940px;
-  background: url(/images/sep-bg.jpg) no-repeat center bottom; }
+  background: url(/assets/sep-bg.jpg) no-repeat center bottom; }
 
 #featured-block {
   position: relative;
@@ -346,7 +346,7 @@ header {
 
 #featured-ribbon {
   position: absolute;
-  background: url(/images/ribbon.png) no-repeat;
+  background: url(/assets/ribbon.png) no-repeat;
   width: 99px;
   height: 98px;
   top: -1px;
@@ -383,7 +383,7 @@ header {
     margin-top: 25px;
     padding: 5px 10px;
     border: 1px solid #c96111;
-    background: #e2721b url(/images/button-bg.png) repeat-x;
+    background: #e2721b url(/assets/button-bg.png) repeat-x;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 10px;
@@ -393,7 +393,7 @@ header {
     display: block;
     &:hover {
       border: 1px solid #2f4c13;
-      background: #4a781d url(/images/button-hover-bg.png) repeat-x; } } }
+      background: #4a781d url(/assets/button-hover-bg.png) repeat-x; } } }
 
 /* Content */
 
@@ -458,10 +458,10 @@ header {
         .comment {
           margin-left: 5px;
           padding: 0 0 5px 20px;
-          background: url(/images/comment.gif) no-repeat 0 1px; }
+          background: url(/assets/comment.gif) no-repeat 0 1px; }
         .datetime {
           padding: 0 0 5px 20px;
-          background: url(/images/clock.gif) no-repeat 0 0; } } }
+          background: url(/assets/clock.gif) no-repeat 0 0; } } }
     .blk-content {
       width: 100%;
       p {
@@ -496,7 +496,7 @@ header {
     font-size: 11px;
     line-height: 20px;
     text-transform: uppercase;
-    background: url(/images/bullet.gif) no-repeat 0 14px;
+    background: url(/assets/bullet.gif) no-repeat 0 14px;
     a {
       &:link, &:visited {
         padding-left: 0;
@@ -524,7 +524,7 @@ footer {
   float: left;
   width: 100%;
   text-align: center;
-  background: url(/images/footer-bg.png) repeat-x;
+  background: url(/assets/footer-bg.png) repeat-x;
 
   #footer-outer {
     clear: both;
@@ -571,19 +571,19 @@ footer {
         line-height: 2em;
         color: #877878; }
       .email {
-        background: url(/images/email.gif) no-repeat 0 center;
+        background: url(/assets/email.gif) no-repeat 0 center;
         padding-left: 20px; }
       .rssfeed {
-        background: url(/images/feed-icon14.gif) no-repeat 0 center;
+        background: url(/assets/feed-icon14.gif) no-repeat 0 center;
         padding-left: 20px; }
       .twitter {
-        background: url(/images/twitter.gif) no-repeat 0 center;
+        background: url(/assets/twitter.gif) no-repeat 0 center;
         padding-left: 20px; }
       .github {
-        background: url(/images/github.gif) no-repeat 0 center;
+        background: url(/assets/github.gif) no-repeat 0 center;
         padding-left: 20px; }
       .linkedin {
-        background: url(/images/linkedin.gif) no-repeat 0 center;
+        background: url(/assets/linkedin.gif) no-repeat 0 center;
         padding-left: 20px; }
       a {
         span {
@@ -609,7 +609,7 @@ footer {
       text-align: right;
       padding-right: 0; }
     a.back-to-top {
-      background: url(/images/arrow-up.gif) no-repeat right center;
+      background: url(/assets/arrow-up.gif) no-repeat right center;
       padding-right: 20px; } }
 }
 

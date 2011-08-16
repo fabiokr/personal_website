@@ -1,4 +1,23 @@
 module AdminHelper
+
+  def page_url(page)
+    route, url = Rails.application.routes.routes.find { |route| route.requirements[:controller] == page.controller_path}, nil
+    if route
+      #first try with index
+      begin
+        url = url_for(:controller => route.requirements[:controller], :action => :index)
+      rescue ActionController::RoutingError
+      end
+
+      #if didn't exist, try with show
+      begin
+        url = url_for(:controller => route.requirements[:controller], :action => :show) if url.nil?
+      rescue ActionController::RoutingError
+      end
+    end
+    url
+  end
+
   def icon_link_to(*args)
     image         = args[0]
     options      = args[1] || {}
@@ -11,7 +30,7 @@ module AdminHelper
         image
     end
 
-    link_to image_tag("/images/admin/icn_#{image}.png"), options, html_options
+    link_to image_tag("/assets/admin/icn_#{image}.png"), options, html_options
   end
 
   def resource_messages

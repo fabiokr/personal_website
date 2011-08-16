@@ -5,8 +5,8 @@
 	<title><%= "#{t('app')} :: #{t('admin.admin')}" %></title>
   <%= csrf_meta_tag %>
   <%= tag :meta, :name => 'locale', :content => I18n.locale %>
-  <%= include_stylesheets :admin %>
-  <!--[if lt IE 9]><%= include_stylesheets :admin_ie %><![endif]-->
+  <%= stylesheet_link_tag 'admin-application' %>
+  <!--[if lt IE 9]><%= stylesheet_link_tag 'admin-application-ie' %><![endif]-->
 </head>
 <body>
 	<header id="header">
@@ -57,7 +57,7 @@
 	</footer>
 
   <%= javascript_include_tag 'ckeditor/ckeditor' %>
-  <%= include_javascripts :admin %>
+  <%= javascript_include_tag 'admin/application' %>
 </body>
 </html>
 

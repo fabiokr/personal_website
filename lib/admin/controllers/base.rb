@@ -8,7 +8,6 @@ module Admin
       layout proc{ |c| c.request.xhr? ? false : 'admin' }
       attr_reader :resource
       helper_method :resource, :current_admin_user
-      render_inheritable
 
       add_breadcrumb I18n.t('app'), :admin_dashboard_path
 

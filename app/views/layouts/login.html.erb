@@ -4,8 +4,8 @@
 	<meta charset="utf-8"/>
 	<title><%= "#{t('app')} :: #{t('admin.admin')}" %></title>
   <%= csrf_meta_tag %>
-  <%= include_stylesheets :admin %>
-  <!--[if lt IE 9]><%= include_stylesheets :admin_ie %><![endif]-->
+  <%= stylesheet_link_tag 'admin-application' %>
+  <!--[if lt IE 9]><%= stylesheet_link_tag 'admin-application-ie' %><![endif]-->
 </head>
 <body>
 	<header id="header">
@@ -19,8 +19,7 @@
     <%= yield %>
 	</section>
 
-  <%= javascript_include_tag 'ckeditor/ckeditor' %>
-  <%= include_javascripts :admin %>
+  <%= javascript_include_tag 'admin/application' %>
 </body>
 </html>
 

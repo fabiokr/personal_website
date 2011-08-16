@@ -13,7 +13,7 @@
     <tbody>
       <% @pages.each do |page| %>
         <tr>
-		      <td><%= link_to_if (url = page.url), url, url %></td>
+		      <td><%= link_to_if url = page_url(page), url, url %></td>
 		      <td><%= page.title %> <%= page.controller_path == 'application' ? ' - ' + t('admin.pages.general') : '' %></td>
 		      <td><%= page.locale %></td>
 		      <td><%= l(page.updated_at, :format => :short) %></td>

@@ -1,11 +1,10 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
+gem 'rails', '3.1.0.rc4'
 
 #libraries
-gem 'omniauth'
+gem 'omniauth', '~> 0.2.6'
 gem 'inherited_resources'
-gem 'render_inheritable'
 gem 'responders'
 gem 'has_scope'
 gem 'breadcrumbs_on_rails'
@@ -13,20 +12,22 @@ gem 'kaminari'
 gem 'acts_as_list'
 gem 'ckeditor'
 gem 'paperclip'
-gem 'jammit'
 gem 'breadcrumbs_on_rails'
 gem 'cells'
+gem 'acts-as-taggable-on'
 gem 'thin'
 
-#views
+# Rails 3.1 - Asset Pipeline
+gem 'json'
+gem 'sass-rails'
+gem 'coffee-script'
+gem 'uglifier'
 gem 'jquery-rails'
-
-gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'sqlite3'
   gem 'rails3-generators'
-  gem 'compass', '>= 0.11.1'
+  gem 'compass', :git => 'https://github.com/chriseppstein/compass.git', :branch => 'rails31'
 
   gem 'minitest'
   gem 'simplecov', '>= 0.4.0', :require => false
@@ -43,4 +44,5 @@ end
 group :production do
   gem 'pg'
   gem 'newrelic_rpm'
+  gem 'therubyracer-heroku', '0.8.1.pre3'
 end

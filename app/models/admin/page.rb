@@ -1,6 +1,5 @@
 module Admin
   class Page < ActiveRecord::Base
-    extend ActiveSupport::Memoizable
     include Admin::Models::SeoEnable
 
     has_many :page_contents, :dependent => :destroy
@@ -39,9 +38,11 @@ module Admin
       # and also the ActiveAdmin.config.default_namespace.
       def generate!
         controllers = (Rails.application.routes.routes.map do |route|
-          controller_name = "#{route.requirements[:controller].camelize}Controller"
-          ActiveSupport::Dependencies.ref(controller_name).get
-        end).insert(0, ApplicationController).uniq
+          if route.requirements[:controller]
+            controller_name = "#{route.requirements[:controller].camelize}Controller"
+            ActiveSupport::Dependencies.constantize(controller_name)
+          end
+        end).insert(0, ApplicationController).uniq.compact
 
         valid_controllers = valid_controllers()
         valid_locales     = valid_locales()
@@ -82,7 +83,7 @@ module Admin
         ignored_namespaces = ApplicationController.managable_content_ignore_namespace
         ignored_namespaces << 'rails'
 
-        valid_controllers = controller_paths.uniq.select do |controller_path|
+        valid_controllers = controller_paths.compact.uniq.select do |controller_path|
           !controller_path.empty? && !ignored_namespaces.detect do |ignored|
             controller_path.start_with?(ignored)
           end
@@ -99,29 +100,6 @@ module Admin
         valid_locales
       end
     end
-
-    def url
-      route, url = Rails.application.routes.routes.find { |route| route.requirements[:controller] == controller_path}, nil
-
-      if route
-        generate_route = lambda { |action| Rails.application.routes.generate(:controller => route.requirements[:controller], :action => action) }
-
-        #first try with index
-        begin
-          url = generate_route.call(:index)
-        rescue ActionController::RoutingError
-        end
-
-        #if didn't exist, try with show
-        begin
-          url = generate_route.call(:show) if url.nil?
-        rescue ActionController::RoutingError
-        end
-      end
-
-      url
-    end
-    memoize :url
 
   end
 end

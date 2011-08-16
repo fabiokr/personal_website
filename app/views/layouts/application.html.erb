@@ -8,8 +8,8 @@
     <meta name="keywords" content="<%= get_keywords %>"/>
     <meta name="author" content="Fabio Kreusch"/>
     <%= csrf_meta_tag %>
-    <%= include_stylesheets :website %>
-    <!--[if IE 6]><%= include_stylesheets :website_ie6 %><![endif]-->
+    <%= stylesheet_link_tag 'application' %>
+    <!--[if IE 6]><%= stylesheet_link_tag 'application-ie' %><![endif]-->
   </head>
 
   <body>
@@ -54,7 +54,7 @@
 			      <label for="qsearch"><%= t('search') %>:</label>
 			      <input class="tbox" id="qsearch" type="text" name="q" size="31" maxlength="255" value="<%= t('search') %>..." title="<%= t('search_hint') %>" />
 			      <input type="hidden" name="sitesearch" value="www.kreusch.com.br">
-			      <input class="btn" alt="Search" type="image" name="searchsubmit" title="Search" src="/images/search.png" />
+			      <input class="btn" alt="Search" type="image" name="searchsubmit" title="Search" src="/assets/search.png" />
 			    </p>
 		    </form>
 	    </header>
@@ -134,7 +134,7 @@
 	      </section>
 	    </section>
     </footer>
-    <%= include_javascripts :website %>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>
 

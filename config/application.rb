@@ -24,17 +24,14 @@ module PersonalWebsite
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    #config.time_zone = 'Central Time (US & Canada)'
+    # config.time_zone = 'Central Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    # config.i18n.default_locale = :de
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.i18n.default_locale = 'en'
     config.available_locales = ['en', 'pt']
-
-    # JavaScript files you want as :defaults (application.js is always included).
-    # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
-    config.action_view.javascript_expansions[:admin_defaults] = %w(lib/modernizr lib/selectivzr lib/jquery lib/jquery-ui lib/jquery_ujs lib/plugins/jquery.equalHeight ckeditor/ckeditor admin)
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
@@ -42,8 +39,13 @@ module PersonalWebsite
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
+    # Enable the asset pipeline
+    config.assets.enabled = true
+
+    # ActionMailer config
     config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+    # Generators config
     config.generators do |g|
       g.test_framework  :test_unit, :fixture_replacement => :factory_girl
     end

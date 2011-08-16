@@ -1,12 +1,12 @@
 /* ie fix */
 /*  ribbon GIF format. ie6 doesn't support transparent PNG */
-/* line 5, ../../app/assets/stylesheets/ie6.scss */
+/* line 5, ../../../app/assets/stylesheets/website/ie6.scss */
 #featured-ribbon {
   background: url(/assets/ribbon.gif) no-repeat;
 }
 
 /* display:block fix */
-/* line 11, ../../app/assets/stylesheets/ie6.scss */
+/* line 11, ../../../app/assets/stylesheets/website/ie6.scss */
 * html body .sidemenu ul li, * html body .commentlist li {
   height: 1%;
 }

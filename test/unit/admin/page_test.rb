@@ -83,13 +83,6 @@ module Admin
       check_generated_pages Rails.configuration.available_locales
     end
 
-    test 'should be able to get the page url' do
-      Page.generate!
-
-      @page = Page.for_controller(HomeMocksController.controller_path)
-      assert_equal '/home_mocks', @page.url
-    end
-
     test 'should have available scope' do
       assert_equal Page.where(:controller_path => Page.valid_controllers), Page.available
     end

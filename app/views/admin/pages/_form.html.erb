@@ -1,20 +1,21 @@
 <% editable = true if editable.nil? %>
 <article class="module width_full">
-  <%= form_for(@page) do |f| %>
+  <%= form_for(@page, :url => admin_page_path(@page), :method => :put) do |f| %>
 	  <header><h3><%= form_title(f.object) %></h3></header>
 		  <div class="module_content">
+        <fieldset>
+          <%= f.label :key %>
+          <%= f.object.key.titleize %>
+        </fieldset>
 		    <fieldset>
           <%= f.label :locale %>
           <%= f.object.locale %>
         </fieldset>
-			  <%= render 'seo_inputs', :f => f, :editable => editable %>
-				<% controller = ActiveSupport::Dependencies.ref("#{f.object.controller_path.camelize}Controller").get %>
-				<% if !f.object.page_contents.empty? && f.object.page_contents.detect{|content| controller.managable_content_for.include?(content.key.to_sym) || (controller.controller_path == 'application' && controller.managable_layout_content_for.include?(content.key.to_sym))} %>
+				<% controller = "#{f.object.key.camelize}Controller".constantize %>
+				<% unless f.object.page_contents.empty? %>
           <%= f.fields_for :page_contents do |content| %>
-            <% if controller.managable_content_for.include?(content.object.key.to_sym) || (controller.controller_path == 'application' && controller.managable_layout_content_for.include?(content.object.key.to_sym)) %>
-              <%= editable ? content.hidden_field(:id) : '' %>
-			        <%= content_form_tag content, :content, editable, :label => I18n.t("admin.content.#{content.object.key}") %>
-            <% end %>
+            <%= editable ? content.hidden_field(:id) : '' %>
+		        <%= content_form_tag content, :content, editable, :label => I18n.t("admin.content.#{content.object.key}") %>
           <% end %>
         <% end %>
         <div class="clear"></div>

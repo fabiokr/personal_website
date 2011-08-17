@@ -1,6 +1,8 @@
 class AdminUser < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email#, :remember_me, :password, :password_confirmation
+  attr_accessible :email
+
+  validates :email, :presence => true
 
   scope :sorted, (lambda do |*args|
     sort = args.first

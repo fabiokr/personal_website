@@ -9,7 +9,7 @@ class PagesTest < ActionDispatch::IntegrationTest
   end
 
   test '/en/home should be accessible' do
-    Rails.configuration.available_locales.each do |locale|
+    ManageableContent::Engine.config.locales.each do |locale|
       visit "/#{locale}/home"
 
       assert_equal 200, page.status_code
@@ -19,8 +19,8 @@ class PagesTest < ActionDispatch::IntegrationTest
   test 'should be able to view blog article' do
     locale_articles = {}
 
-    Rails.configuration.available_locales.each do |locale|
-      locale_articles[locale] = (1..5).map{|i| Factory(:blog_article, :published_at => DateTime.now, :locale => locale)}
+    ManageableContent::Engine.config.locales.each do |locale|
+      locale_articles[locale] = (1..5).map{|i| Factory(:blog_article, :published_at => DateTime.now, :locale => locale.to_s)}
     end
 
     locale_articles.each do |locale, articles|

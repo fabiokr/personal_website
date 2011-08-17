@@ -1,11 +1,10 @@
 class ApplicationController < ActionController::Base
-  include Admin::Controllers::HasContent
+  include ManageableContent::Controllers::Dsl
 
   protect_from_forgery
   layout :layout
 
-  managable_content_ignore_namespace 'admin', 'devise', 'ckeditor', 'jammit', 'errors'
-  managable_layout_content_for :contact_info, :about
+  manageable_layout_content_for 'application', :contact_info, :about
 
   respond_to :html
 

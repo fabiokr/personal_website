@@ -38,7 +38,7 @@ class PagesDashboardPanelCellTest < Cell::TestCase
       resources :sixth_mocks
     end
 
-    Admin::Page.generate!
+    ManageableContent::Generator.generate!
   end
 
   def teardown
@@ -48,7 +48,7 @@ class PagesDashboardPanelCellTest < Cell::TestCase
   test "display" do
     invoke :display
 
-    Admin::Page.available.sorted('updated_at DESC').limit(5).each do |page|
+    ManageableContent::Page.available.sorted('updated_at DESC').limit(5).each do |page|
       assert_select 'td', page.title
     end
   end

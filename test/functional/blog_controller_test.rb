@@ -3,14 +3,14 @@ require 'test_helper'
 class BlogControllerTest < ActionController::TestCase
   def setup
     @published_articles, @unpublished_articles = [], []
-    locale = Rails.configuration.available_locales.each do |locale|
-      @published_articles   += (1..15).map{|i| Factory(:blog_article, :published_at => DateTime.now, :locale => locale)}
-      @unpublished_articles += (1..15).map{|i| Factory(:blog_article, :published_at => nil, :locale => locale)}
+    locale = ManageableContent::Engine.config.locales.each do |locale|
+      @published_articles   += (1..15).map{|i| Factory(:blog_article, :published_at => DateTime.now, :locale => locale.to_s)}
+      @unpublished_articles += (1..15).map{|i| Factory(:blog_article, :published_at => nil, :locale => locale.to_s)}
     end
   end
 
   test 'on index should list articles for the locale' do
-    locale = Rails.configuration.available_locales.first
+    locale = ManageableContent::Engine.config.locales.first.to_s
 
     get :index, :locale => locale
 

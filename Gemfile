@@ -16,6 +16,7 @@ gem 'breadcrumbs_on_rails'
 gem 'cells'
 gem 'acts-as-taggable-on'
 gem 'thin'
+gem 'manageable_content', :path => '~/dev/manageable_content'
 
 # Rails 3.1 - Asset Pipeline
 gem 'json'

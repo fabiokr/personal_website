@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110713034819) do
+ActiveRecord::Schema.define(:version => 20110817163214) do
 
   create_table "admin_page_contents", :force => true do |t|
     t.integer  "page_id"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(:version => 20110713034819) do
     t.string   "assetable_type",    :limit => 30
     t.string   "type",              :limit => 25
     t.string   "guid",              :limit => 10
-    t.integer  "locale",            :limit => 1,  :default => 0
+    t.integer  "locale",            :limit => 2,  :default => 0
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -85,6 +85,25 @@ ActiveRecord::Schema.define(:version => 20110713034819) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "fk_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_assetable_type"
   add_index "ckeditor_assets", ["user_id"], :name => "fk_user"
+
+  create_table "manageable_content_page_contents", :force => true do |t|
+    t.integer  "page_id"
+    t.string   "key"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "manageable_content_page_contents", ["page_id", "key"], :name => "index_manageable_content_page_contents_on_page_id_and_key", :unique => true
+
+  create_table "manageable_content_pages", :force => true do |t|
+    t.string   "key"
+    t.string   "locale"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "manageable_content_pages", ["key", "locale"], :name => "index_manageable_content_pages_on_key_and_locale", :unique => true
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

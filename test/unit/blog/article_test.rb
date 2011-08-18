@@ -12,12 +12,6 @@ class Blog::ArticleTest < ActiveSupport::TestCase
   should allow_mass_assignment_of(:locale)
   should validate_presence_of(:locale)
 
-  ManageableContent::Engine.config.locales.each do |locale|
-    should allow_value(locale.to_s).for(:locale)
-  end
-
-  should_not allow_value('invalid').for(:locale)
-
   test 'should have for_locale scope' do
     ManageableContent::Engine.config.locales.each do |locale|
       Factory(:blog_article, :published_at => DateTime.new(2011, 6, 30), :locale => locale.to_s)

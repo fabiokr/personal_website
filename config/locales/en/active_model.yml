@@ -1,9 +1,8 @@
 en:
   activerecord:
     models:
-      admin:
-        page: Page
-      admin_user: User
+      manageable_content/page: Page
+      admin/admin_user: User
     attributes:
       general: &general
         title: Title
@@ -23,10 +22,9 @@ en:
         created_at: Created at
         locale: Locale
         url: Url
-      admin:
-        page:
-          <<: *general
-      admin_user:
+      admin/page:
+        <<: *general
+      admin/admin_user:
         email: E-mail
         password: Password
         password_confirmation: Password confirmation

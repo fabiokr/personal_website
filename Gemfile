@@ -17,16 +17,17 @@ gem 'cells'
 gem 'acts-as-taggable-on'
 gem 'thin'
 gem 'manageable_content'
+gem 'json'
 
 # Rails 3.1 - Asset Pipeline
 group :assets do
-  gem 'json'
   gem 'sass-rails'
   gem 'coffee-script'
   gem 'uglifier'
-  gem 'jquery-rails'
   gem 'compass', :git => 'https://github.com/chriseppstein/compass.git', :branch => 'rails31'
 end
+
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'sqlite3'

@@ -19,16 +19,18 @@ gem 'thin'
 gem 'manageable_content'
 
 # Rails 3.1 - Asset Pipeline
-gem 'json'
-gem 'sass-rails'
-gem 'coffee-script'
-gem 'uglifier'
-gem 'jquery-rails'
+group :assets do
+  gem 'json'
+  gem 'sass-rails'
+  gem 'coffee-script'
+  gem 'uglifier'
+  gem 'jquery-rails'
+  gem 'compass', :git => 'https://github.com/chriseppstein/compass.git', :branch => 'rails31'
+end
 
 group :development, :test do
   gem 'sqlite3'
   gem 'rails3-generators'
-  gem 'compass', :git => 'https://github.com/chriseppstein/compass.git', :branch => 'rails31'
 
   gem 'minitest'
   gem 'simplecov', '>= 0.4.0', :require => false

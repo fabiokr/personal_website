@@ -1,0 +1,2 @@
+// make sure the $ is pointing to JQuery and not some other library
+(function(a){a.fn.equalHeight=function(){tallest=0,this.each(function(){thisHeight=a(this).height(),thisHeight>tallest&&(tallest=thisHeight)}),this.each(function(){a(this).attr("min-height",tallest)})}})(jQuery)

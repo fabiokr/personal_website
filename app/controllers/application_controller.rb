@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-  manageable_layout_content_for :contact_info
+  manageable_layout_content_for :contact_info, :about
   manageable_content_for        :title, :description, :keywords
 
   respond_to :html

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110817163214) do
+ActiveRecord::Schema.define(:version => 20110818063543) do
 
   create_table "admin_page_contents", :force => true do |t|
     t.integer  "page_id"

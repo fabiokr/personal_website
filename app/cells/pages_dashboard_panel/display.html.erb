@@ -12,7 +12,7 @@
     <tbody>
       <% @pages.each do |page| %>
         <tr>
-		      <td><%= page.page_content_for_key(:title).content %> (<%= page.key.titleize %>)</td>
+		      <td><%= page.content(:title) %> (<%= page.key.titleize %>)</td>
 		      <td><%= page.locale %></td>
 		      <td><%= l(page.updated_at, :format => :short) %></td>
 		      <td>

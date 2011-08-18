@@ -7,9 +7,15 @@ module Admin
       #ManageableContent::Generator.generate!
     end
 
-    def collection
-      super
-      @pages = @pages.order("key ASC, locale ASC")
-    end 
+    protected
+
+      def begin_of_association_chain
+        ManageableContent::Manager
+      end
+
+      def collection
+        super
+        @pages = @pages.order("key ASC, locale ASC")
+      end 
   end
 end

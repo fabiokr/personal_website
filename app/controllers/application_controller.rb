@@ -2,9 +2,9 @@ class ApplicationController < ActionController::Base
   include ManageableContent::Controllers::Dsl
 
   protect_from_forgery
-  layout :layout
 
-  manageable_layout_content_for 'application', :contact_info, :about
+  manageable_layout_content_for :contact_info
+  manageable_content_for        :title, :description, :keywords
 
   respond_to :html
 
@@ -28,9 +28,5 @@ class ApplicationController < ActionController::Base
 
   def render_error(exception)
     render :template => "/errors/500.html.erb", :status => 500
-  end
-
-  def layout
-    'application'
   end
 end

@@ -1,5 +1,6 @@
 module Admin
-  class UserSessionsController < ApplicationController
+  class UserSessionsController < ActionController::Base
+    protect_from_forgery
 
     layout 'login'
     helper_method :resource

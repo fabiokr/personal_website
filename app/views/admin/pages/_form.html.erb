@@ -11,11 +11,13 @@
           <%= f.label :locale %>
           <%= f.object.locale %>
         </fieldset>
-				<% controller = "#{f.object.key.camelize}Controller".constantize %>
 				<% unless f.object.page_contents.empty? %>
+          <% eligible_contents = ManageableContent::Manager.eligible_contents(@page.key) %>
           <%= f.fields_for :page_contents do |content| %>
-            <%= editable ? content.hidden_field(:id) : '' %>
-		        <%= content_form_tag content, :content, editable, :label => I18n.t("admin.content.#{content.object.key}") %>
+            <% if eligible_contents.include?(content.object.key.to_sym) %>
+              <%= editable ? content.hidden_field(:id) : '' %>
+  		        <%= content_form_tag content, :content, editable, :label => I18n.t("admin.content.#{content.object.key}") %>
+            <% end %>
           <% end %>
         <% end %>
         <div class="clear"></div>

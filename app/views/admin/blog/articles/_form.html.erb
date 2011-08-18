@@ -6,7 +6,7 @@
 		    <fieldset>
           <%= f.label :locale %>
           <% if editable %>
-            <%= f.select :locale, Rails.configuration.available_locales.map{|locale| [locale, locale]} %>
+            <%= f.select :locale, ManageableContent::Engine.config.locales.map{|locale| [locale.to_s, locale.to_s]} %>
           <% else %>
             <%= f.object.locale %>
           <% end %>

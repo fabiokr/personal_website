@@ -1,23 +1,21 @@
 <article class="module width_full">
   <header>
-    <h3><%= Admin::Page.model_name.human.pluralize %> (<%= @pages.total_count %>)</h3>
+    <h3><%= ManageableContent::Page.model_name.human.pluralize %> (<%= @pages.total_count %>)</h3>
     <%= paginate @pages %>
   </header>
   <table class="data-table" cellspacing="0">
   <thead>
 	  <tr>
-			  <th><%= Admin::Page.human_attribute_name(:url) %></th>
-			  <th><%= sortable 'title', Admin::Page.human_attribute_name(:title) %></th>
-			  <th><%= sortable 'locale', Admin::Page.human_attribute_name(:locale) %></th>
-			  <th><%= sortable 'updated_at', Admin::Page.human_attribute_name(:updated_at) %></th>
+			  <th><%= sortable 'title', ManageableContent::Page.human_attribute_name(:title) %></th>
+			  <th><%= sortable 'locale', ManageableContent::Page.human_attribute_name(:locale) %></th>
+			  <th><%= sortable 'updated_at', ManageableContent::Page.human_attribute_name(:updated_at) %></th>
 			  <th><%= t('admin.actions') %></th>
 	  </tr>
   </thead>
   <tbody>
     <% @pages.each do |page| %>
       <tr>
-			  <td><%= link_to_if (url = page.url), url, url %></td>
-			  <td><%= [page.title, page.controller_path == 'application' ? t('admin.pages.general') : nil].compact.join(' - ') %></td>
+			  <td><%= page.content(:title) %> (<%= page.key.titleize %>)</td>
 			  <td><%= page.locale %></td>
 			  <td><%= l(page.updated_at, :format => :short) %></td>
 			  <td>

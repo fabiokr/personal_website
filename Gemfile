@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc5'
+gem 'rails', '~> 3.1.0.rc5'
 
 #libraries
 gem 'omniauth', '~> 0.2.6'
@@ -16,6 +16,7 @@ gem 'breadcrumbs_on_rails'
 gem 'cells'
 gem 'acts-as-taggable-on'
 gem 'thin'
+gem 'manageable_content'
 
 # Rails 3.1 - Asset Pipeline
 gem 'json'

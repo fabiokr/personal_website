@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
 
-  managable_content_for :body, :image
+  manageable_content_for :body, :image
 
   def index
   end

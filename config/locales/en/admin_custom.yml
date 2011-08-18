@@ -4,4 +4,7 @@ en:
       about: About
       contact_info: Contact Info
       image: Image
+      title: Title
+      description: Description
+      keywords: Keywords
 

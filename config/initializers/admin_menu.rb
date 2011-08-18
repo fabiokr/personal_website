@@ -1,7 +1,7 @@
 Rails.application.config.admin_menu = Admin::Menu.configure do
   #Pages
-  menu Admin::Page, :plural => true do
-    item :admin_pages_path, :title => proc { I18n.t("admin.index_resource", :resource_name => Admin::Page.model_name.human.pluralize) }, :icon => 'edit_article'
+  menu ManageableContent::Page, :plural => true do
+    item :admin_pages_path, :title => proc { I18n.t("admin.index_resource", :resource_name => ManageableContent::Page.model_name.human.pluralize) }, :icon => 'edit_article'
   end
 
   #Custom

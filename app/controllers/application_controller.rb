@@ -1,11 +1,10 @@
 class ApplicationController < ActionController::Base
-  include Admin::Controllers::HasContent
+  include ManageableContent::Controllers::Dsl
 
   protect_from_forgery
-  layout :layout
 
-  managable_content_ignore_namespace 'admin', 'devise', 'ckeditor', 'jammit', 'errors'
-  managable_layout_content_for :contact_info, :about
+  manageable_layout_content_for :contact_info, :about
+  manageable_content_for        :title, :description, :keywords
 
   respond_to :html
 
@@ -29,9 +28,5 @@ class ApplicationController < ActionController::Base
 
   def render_error(exception)
     render :template => "/errors/500.html.erb", :status => 500
-  end
-
-  def layout
-    'application'
   end
 end

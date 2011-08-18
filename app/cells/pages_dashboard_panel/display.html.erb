@@ -3,18 +3,16 @@
 	<table class="data-table" cellspacing="0">
     <thead>
       <tr>
-		      <th><%= Admin::Page.human_attribute_name(:url) %></th>
-		      <th><%= Admin::Page.human_attribute_name(:title) %></th>
-		      <th><%= Admin::Page.human_attribute_name(:locale) %></th>
-		      <th><%= Admin::Page.human_attribute_name(:updated_at) %></th>
+		      <th><%= ManageableContent::Page.human_attribute_name(:title) %></th>
+		      <th><%= ManageableContent::Page.human_attribute_name(:locale) %></th>
+		      <th><%= ManageableContent::Page.human_attribute_name(:updated_at) %></th>
 		      <th><%= t('admin.actions') %></th>
       </tr>
     </thead>
     <tbody>
       <% @pages.each do |page| %>
         <tr>
-		      <td><%= link_to_if url = page_url(page), url, url %></td>
-		      <td><%= page.title %> <%= page.controller_path == 'application' ? ' - ' + t('admin.pages.general') : '' %></td>
+		      <td><%= page.content(:title) %> (<%= page.key.titleize %>)</td>
 		      <td><%= page.locale %></td>
 		      <td><%= l(page.updated_at, :format => :short) %></td>
 		      <td>

@@ -1,23 +1,5 @@
 module AdminHelper
 
-  def page_url(page)
-    route, url = Rails.application.routes.routes.find { |route| route.requirements[:controller] == page.controller_path}, nil
-    if route
-      #first try with index
-      begin
-        url = url_for(:controller => route.requirements[:controller], :action => :index)
-      rescue ActionController::RoutingError
-      end
-
-      #if didn't exist, try with show
-      begin
-        url = url_for(:controller => route.requirements[:controller], :action => :show) if url.nil?
-      rescue ActionController::RoutingError
-      end
-    end
-    url
-  end
-
   def icon_link_to(*args)
     image         = args[0]
     options      = args[1] || {}
@@ -77,13 +59,13 @@ module AdminHelper
   end
 
   def locale_select
-    available_locales = Rails.configuration.available_locales
+    available_locales = ManageableContent::Engine.config.locales
 
     html = ''
 
     if available_locales.size > 1
       html << label_tag(:locale, t('admin.locale_select'))
-      html << select_tag(:locale, options_for_select(available_locales.map {|locale| [locale, locale]}, params[:locale]))
+      html << select_tag(:locale, options_for_select(available_locales.map {|locale| [locale.to_s, locale.to_s]}, params[:locale]))
     end
 
     html.html_safe

@@ -13,6 +13,10 @@ module Admin
         @full_width = true
       end
 
+      before_filter do
+        @title = [t('app'), self.controller_path.camelize.split('::')].flatten.join(' :: ')
+      end
+
       def self.template_lookup_path(param = nil)
         paths = super(param)
         paths << 'admin/base'

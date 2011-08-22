@@ -4,7 +4,7 @@ class Admin::Controllers::Resource < Admin::Controllers::Base
 
   inherit_resources
 
-  before_filter :collection_breadcrumbs, :resource_breadcrumbs
+  #before_filter :collection_breadcrumbs, :resource_breadcrumbs
   helper_method :sort_column, :sort_direction
 
   respond_to :html

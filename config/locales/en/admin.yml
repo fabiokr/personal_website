@@ -10,6 +10,7 @@ en:
     confirm: Yes
     negate: No
     cancel: Cancel
+    index: List
     save: Save
     edit: Edit
     delete: Delete

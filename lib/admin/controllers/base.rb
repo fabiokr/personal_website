@@ -5,11 +5,9 @@ module Admin
 
       protect_from_forgery
       before_filter :authenticate_admin_user!
-      layout proc{ |c| c.request.xhr? ? false : 'admin' }
+      layout proc{ |c| c.request.xhr? ? false : 'activo' }
       attr_reader :resource
       helper_method :resource, :current_admin_user
-
-      add_breadcrumb I18n.t('app'), :admin_dashboard_path
 
       def self.template_lookup_path(param = nil)
         paths = super(param)

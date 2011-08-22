@@ -1,0 +1,5 @@
+= form.inputs do
+  = content if defined?(content) && !content.nil?
+  - unless readonly
+    = submit_button "tick", t("admin.save")
+    = link_button   "cross", t("admin.cancel"), :back

@@ -1,18 +1,18 @@
 module AdminHelper
 
-  def icon_link_to(*args)
-    image         = args[0]
+  def link_icon_to(*args)
+    icon         = args[0]
     options      = args[1] || {}
-    html_options = {:title => t("admin.#{image}")}.merge(args[2] || {})
+    html_options = {:title => t("admin.#{icon}")}.merge(args[2] || {})
 
-    image = case image
-      when :delete
-        :trash
+    icon = case icon
+      when :edit
+        'page_edit'
       else
-        image
+        icon
     end
 
-    link_to image_tag("/assets/admin/icn_#{image}.png"), options, html_options
+    link_to icon(icon), options, html_options
   end
 
   def resource_messages
@@ -86,6 +86,34 @@ module AdminHelper
     path == request.path || breadcrumbs.detect do |crumb|
       @builder.send(:compute_path, crumb) == path
     end
+  end
+
+  def submit_button(img_src, text, value = '', options = {})
+    raw "<button class='button' type='submit' name='submit' value = '#{value}'>" +
+      icon(img_src) + ' ' + text + "</button>"
+  end
+
+  def link_button(img_src, text, url = '', options = {})
+    return link_to raw([icon(img_src), text].join(' ')), options, :class => "button" if url.to_s.empty? # back compatibility [FIXME]
+    link_to raw([icon(img_src), text].join(' ')), url, {:class => "button"}.merge!(options)
+  end
+
+  def main_navigation(menu)
+    menu.item t('admin.admin'), admin_dashboard_path
+    menu.item ManageableContent::Page.model_name.human.pluralize, admin_pages_path
+  end
+
+  def user_navigation(menu)
+    menu.item current_admin_user.email, edit_admin_user_path(current_admin_user)
+    menu.item t('admin.sign_out'), admin_user_session_path, :method => :delete
+  end
+
+  def sidebar
+  end
+
+  def head
+    stylesheet_link_tag('admin/activo-admin-custom') +
+    javascript_include_tag('/javascripts/ckeditor/ckeditor', 'admin/application')
   end
 
   private

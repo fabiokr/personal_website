@@ -4,7 +4,7 @@ module Admin
     defaults :resource_class => ManageableContent::Page, :collection_name => 'pages', :instance_name => 'page'
 
     before_filter do
-      #ManageableContent::Generator.generate!
+      @full_width = true
     end
 
     protected

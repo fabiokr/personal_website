@@ -1,0 +1,9 @@
+= content_box do |box| 
+  h2 Administration
+  .content.login
+    .flash
+      - [ :warning, :notice, :error ].each do |f| 
+        - unless flash[f].nil?
+          div class="message #{f}"
+            p= flash[f].html_safe
+    = link_to "Sign in with Google Account", '/auth/admin' 

@@ -1,0 +1,5 @@
+section.sidemenu
+  h3 Tags Cloud
+  - tag_cloud(@tags, %w(tag1 tag2 tag3 tag4)) do |tag, css_class|
+    = link_to tag.name, blog_tag_path(:locale => I18n.locale, :tag => tag.name), :class => css_class
+    '&nbsp;

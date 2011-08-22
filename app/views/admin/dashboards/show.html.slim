@@ -1,0 +1,4 @@
+.dashboard
+  - @panels.each_with_index do |panel, i|
+    article
+      = render_cell panel, 'display'

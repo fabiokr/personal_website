@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/fabiokr/manageable_content.git
+  revision: a8793d2506ab03749b2e8ab383fad65651bd81f0
+  specs:
+    manageable_content (0.1.0)
+      rails (~> 3.1.0.rc6)
+
+GIT
   remote: git://github.com/guard/guard.git
   revision: b144514b06357a890b19d29b6001eaf2d686800b
   specs:
@@ -6,14 +13,11 @@ GIT
       thor (~> 0.14.6)
 
 GIT
-  remote: https://github.com/chriseppstein/compass.git
-  revision: 91a748a916360057b5caf6ea85cd38441d3b257a
-  branch: rails31
+  remote: https://github.com/jellybob/activo-rails.git
+  revision: a2d3baa111a8c294218be95603601a05ac7636d9
+  branch: rails3_1
   specs:
-    compass (0.12.0.alpha.0.91a748a)
-      chunky_png (~> 1.2)
-      fssm (>= 0.2.7)
-      sass (~> 3.1)
+    activo-rails (1.1.0)
 
 GEM
   remote: http://rubygems.org/
@@ -53,7 +57,6 @@ GEM
     ansi (1.3.0)
     arel (2.2.1)
     bcrypt-ruby (2.1.4)
-    breadcrumbs_on_rails (2.0.0)
     builder (3.0.0)
     capybara (1.0.1)
       mime-types (>= 1.16)
@@ -67,7 +70,6 @@ GEM
       railties (~> 3.0)
     childprocess (0.2.1)
       ffi (~> 1.0.6)
-    chunky_png (1.2.1)
     ckeditor (3.6.0)
       mime-types (~> 1.16)
       orm_adapter (~> 0.0.5)
@@ -92,7 +94,10 @@ GEM
       multipart-post (~> 1.1.0)
       rack (< 2, >= 1.1.0)
     ffi (1.0.9)
-    fssm (0.2.7)
+    formtastic (1.2.4)
+      actionpack (>= 2.3.7)
+      activesupport (>= 2.3.7)
+      i18n (~> 0.4)
     has_scope (0.5.1)
     hike (1.2.1)
     i18n (0.6.0)
@@ -111,8 +116,6 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    manageable_content (0.0.1)
-      rails (~> 3.1.0.rc6)
     mime-types (1.16)
     minitest (2.4.0)
     multi_json (1.0.3)
@@ -220,11 +223,15 @@ GEM
     simplecov (0.4.2)
       simplecov-html (~> 0.4.4)
     simplecov-html (0.4.5)
+    slim (1.0.1)
+      temple (~> 0.3.0)
+      tilt (~> 1.2)
     sprockets (2.0.0.beta.13)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (!= 1.3.0, ~> 1.1)
     sqlite3 (1.3.4)
+    temple (0.3.2)
     therubyracer-heroku (0.8.1.pre3)
     thin (1.2.11)
       daemons (>= 1.0.9)
@@ -248,17 +255,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activo-rails!
   acts-as-taggable-on
   acts_as_list
-  breadcrumbs_on_rails
   capybara
   cells
   ckeditor
   coffee-script
-  compass!
   factory_girl
   factory_girl_rails
   faker
+  formtastic
   guard!
   has_scope
   inherited_resources
@@ -266,7 +273,7 @@ DEPENDENCIES
   json
   kaminari
   launchy
-  manageable_content
+  manageable_content!
   minitest
   newrelic_rpm
   omniauth (~> 0.2.6)
@@ -278,6 +285,7 @@ DEPENDENCIES
   sass-rails
   shoulda
   simplecov (>= 0.4.0)
+  slim
   sqlite3
   therubyracer-heroku (= 0.8.1.pre3)
   thin

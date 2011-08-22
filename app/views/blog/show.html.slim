@@ -1,0 +1,19 @@
+article.main.post
+  h2
+    = link_to @article.title, '#'
+  p.post-info
+    'Tags:
+    - @article.tags.each do |tag|
+      = link_to tag.name, blog_tag_path(:locale => I18n.locale, :tag => tag.name)
+      '&nbsp;
+  = @article.body.html_safe
+  p.postmeta
+    span.date= l(@article.published_at, :format => :long)
+    ' | 
+    = link_to t('back'), :back
+  #disqus_thread
+  = disqus @article
+  noscript
+    'Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+
+aside.sidebar= render 'tag_cloud'

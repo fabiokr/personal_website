@@ -1,0 +1,28 @@
+- readonly = false if readonly.nil?
+= content_box do |box|
+  = box.navigation do |n|
+    - n.item t('admin.index'), admin_pages_path
+    - n.item t('admin.show'), admin_page_path(resource), :active => current_page?(admin_page_path(resource))
+    - n.item t('admin.edit'), edit_admin_page_path(resource), :active => current_page?(edit_admin_page_path(resource))
+  = semantic_form_for resource, :url => admin_page_path(@page), :method => :put do |form|
+    h3.title #{strip_tags resource.content(:title)} (#{resource.key.titleize})
+    = form.inputs :class => "column_left" do
+      = form.input :key, :input_html => { :disabled => true }
+    = form.inputs :class => "column_right" do
+      = form.input :locale, :input_html => { :disabled => true }
+    - unless form.object.page_contents.empty?
+      = form.inputs do
+        - eligible_contents = ManageableContent::Manager.eligible_contents(form.object.key)
+        = form.fields_for :page_contents do |content_form|
+          - if eligible_contents.include?(content_form.object.key.to_sym)
+            = content_form.input :id, :as => :hidden
+            - if readonly
+              = content_tag 'li', :class => 'text' do
+                = form.label I18n.t("admin.content.#{content_form.object.key}")
+                = content_tag 'div', content_form.object.content.html_safe, :class => 'content'
+            - else
+              - if eligible_contents[content_form.object.key.to_sym] == :string
+                = content_form.input :content, :as => :string, :label => I18n.t("admin.content.#{content_form.object.key}")
+              - else
+                = content_form.input :content, :label => I18n.t("admin.content.#{content_form.object.key}"), :input_html => { :class => 'wysiwyg' }
+    = render 'form_footer', :form => form, :readonly => readonly

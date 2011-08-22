@@ -63,6 +63,20 @@ module ApplicationHelper
     end
   end
 
+  def disqus(article)
+    javascript_tag "
+      var disqus_shortname = 'fkreusch';
+      var disqus_identifier = '#{article.published_at.to_s + article.to_url_param}';
+      var disqus_url = '#{blog_post_url(blog_post_params(article))}';
+
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    "
+  end
+
   include ActsAsTaggableOn::TagsHelper
 
 end

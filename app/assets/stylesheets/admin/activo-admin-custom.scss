@@ -1,0 +1,49 @@
+/** Activo admin customization */
+
+#header #main-navigation li.first a { font-size: 40px; }
+
+#main {
+  float: right;
+}
+
+#sidebar {
+  float: left;
+}
+
+.table {
+  thead tr {
+    a {
+      padding-right: 20px;
+      background: url(/assets/admin/sort_undefined.png) no-repeat center right;
+      &.sort_asc {
+        background: url(/assets/admin/sort_asc.png) no-repeat center right;
+      }
+      &.sort_desc {
+        background: url(/assets/admin/sort_desc.png) no-repeat center right;
+      }
+    }
+  }
+}
+
+form.formtastic fieldset > ol > li label { float: none; }
+form.formtastic fieldset > ol > li {
+  .content { 
+    width: 100%;
+    max-width: 100%;
+    padding: 2px;
+    background-color: #f6f6f6;
+    border: 1px solid #f6f6f6;
+  }
+}
+
+span.cke_skin_kama { border: none !important; padding: 0 !important; }
+
+/** Custom **/
+
+.dashboard {
+  article {
+    width: 49%;
+    float: left;
+    margin-right: 1%;
+  }
+}

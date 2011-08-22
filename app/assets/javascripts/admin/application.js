@@ -58,7 +58,15 @@ var admin = {
       if(CKEDITOR.instances[el.attr('id')]) {
         CKEDITOR.remove(CKEDITOR.instances[el.attr('id')]);
       }
-      CKEDITOR.replace(el.attr('id'), { language: $('meta[name=locale]').attr('content'), toolbar: 'Easy', filebrowserBrowseUrl: '/ckeditor/attachment_files', filebrowserUploadUrl: '/ckeditor/attachment_files', filebrowserImageBrowseUrl: '/ckeditor/pictures', filebrowserImageUploadUrl: '/ckeditor/pictures' });
+      CKEDITOR.replace(el.attr('id'), { 
+        language: $('meta[name=locale]').attr('content'), 
+        width: '100%',
+        toolbar: 'Easy', 
+        filebrowserBrowseUrl: '/ckeditor/attachment_files', 
+        filebrowserUploadUrl: '/ckeditor/attachment_files', 
+        filebrowserImageBrowseUrl: '/ckeditor/pictures', 
+        filebrowserImageUploadUrl: '/ckeditor/pictures' 
+      });
     });
   },
 

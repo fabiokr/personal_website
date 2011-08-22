@@ -1,0 +1,16 @@
+= form.inputs do
+  = form.input :locale, :collection => ManageableContent::Engine.config.locales.map{|locale| [locale.to_s, locale.to_s]}, :input_html => { :disabled => readonly }
+  - unless readonly  
+    = form.check_box :publish_now, {:checked => false}, 'true', 'false'
+    = form.label t('admin.publish_now')
+  = form.input :published_at, :input_html => { :disabled => readonly }
+  = form.input :tag_list, :input_html => { :disabled => readonly }
+  = form.input :title, :input_html => { :disabled => readonly }
+  = form.input :description, :input_html => { :disabled => readonly }
+  = form.input :keywords, :input_html => { :disabled => readonly }
+  - if readonly
+    = content_tag 'li', :class => 'text' do
+      = form.label :body
+      = content_tag 'div', form.object.body.html_safe, :class => 'content'
+  - else
+    = form.input :body, :input_html => { :class => 'wysiwyg' }

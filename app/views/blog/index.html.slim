@@ -1,0 +1,21 @@
+section.main
+  - if params[:tag]
+    h2= t('posts_for_tag', :tag => params[:tag])
+  - @articles.each do |article|
+    article.post
+      h3= link_to article.title, blog_post_path(blog_post_params(article))
+      p.post-info
+        'Tags:
+        - article.tags.each do |tag|
+          = link_to tag.name, blog_tag_path(:locale => I18n.locale, :tag => tag.name)
+      = article.body.html_safe
+      p.postmeta
+        span.date= l(article.published_at, :format => :long)
+        ' | 
+        = link_to t('comment'), blog_post_path(blog_post_params(article).merge('anchor' => 'disqus_thread'))
+  nav.pagination.clear
+    = previous_page_link @articles
+    = next_page_link @articles
+
+aside.sidebar
+  = render 'blog/tag_cloud'

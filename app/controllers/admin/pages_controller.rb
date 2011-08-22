@@ -3,10 +3,6 @@ module Admin
     actions :all, :except => [ :new, :create, :delete, :destroy ]
     defaults :resource_class => ManageableContent::Page, :collection_name => 'pages', :instance_name => 'page'
 
-    before_filter do
-      #ManageableContent::Generator.generate!
-    end
-
     protected
 
       def begin_of_association_chain

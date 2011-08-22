@@ -1,0 +1,28 @@
+= content_box do |box|
+  = box.navigation do |n|
+    - n.item t('admin.index'), collection_path, :active => true
+    - n.item t('admin.new'),   new_resource_path
+  h3.title #{resource_class.model_name.human.pluralize} (#{collection.total_count})
+  table class="table"
+    thead
+      tr
+        th= sortable :id,         resource_class.human_attribute_name(:id)
+        = render 'index_headers'
+        th= sortable :created_at, resource_class.human_attribute_name(:created_at)
+        th= sortable :updated_at, resource_class.human_attribute_name(:updated_at)
+        th
+    tbody
+      - collection.each_with_index do |resource, index|
+        tr class="#{index % 2 == 0 ? 'odd' : 'even'}"
+          td= resource.id
+          = render 'index_rows', :resource => resource
+          td= l(resource.created_at, :format => :short)
+          td= l(resource.updated_at, :format => :short)
+          td.last
+            = link_to t('admin.show'),   resource_path(resource)
+            '&nbsp;
+            = link_to t('admin.edit'),   edit_resource_path(resource)
+            '&nbsp;
+            = link_to t('admin.delete'), resource_path(resource), :method => :delete, :confirm => t('admin.delete_resource_confirmation', :resource_name => resource_class.model_name.human)
+  = paginate collection
+  .wat-cf

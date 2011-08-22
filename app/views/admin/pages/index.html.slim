@@ -1,20 +1,20 @@
 = content_box do |box|
   = box.navigation do |n|
     - n.item t('admin.index'), admin_pages_path, :active => true
-  h3.title #{ManageableContent::Page.model_name.human.pluralize} (#{collection.total_count})
+  h3.title #{resource_class.model_name.human.pluralize} (#{collection.total_count})
   table class="table"
     thead
       tr
-        th= ManageableContent::Page.human_attribute_name(:title)
-        th= ManageableContent::Page.human_attribute_name(:locale)
-        th= ManageableContent::Page.human_attribute_name(:updated_at)
+        th= resource_class.human_attribute_name(:title)
+        th= resource_class.human_attribute_name(:locale)
+        th= resource_class.human_attribute_name(:updated_at)
         th
     tbody
-      - collection.each_with_index do |page, index|
+      - collection.each_with_index do |resource, index|
         tr class="#{index % 2 == 0 ? 'odd' : 'even'}"
-          td #{page.content(:title)} (#{page.key.titleize})
-          td= page.locale
-          td= l(page.updated_at, :format => :short)
-          td.last= link_icon_to :edit, edit_resource_path(page)
+          td #{strip_tags resource.content(:title)} (#{resource.key.titleize})
+          td= resource.locale
+          td= l(resource.updated_at, :format => :short)
+          td.last= link_icon_to :edit, edit_resource_path(resource)
   = paginate collection
   .wat-cf

@@ -9,7 +9,7 @@ module AdminHelper
       when :edit
         'page_edit'
       else
-        icon
+        icon.to_s
     end
 
     link_to icon(icon), options, html_options

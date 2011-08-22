@@ -17,7 +17,7 @@ en:
     order: Order
     drag: drag
     draft: Unpublished
-    publish_now: "Change to today"
+    publish_now: "Publish now"
     index_resource: "View %{resource_name}"
     new_resource: "New %{resource_name}"
     edit_resource: "Edit %{resource_name}"

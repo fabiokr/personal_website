@@ -102,6 +102,7 @@ module AdminHelper
     menu.item t('app'), root_path
     menu.item t('admin.dashboard'), admin_dashboard_path
     menu.item ManageableContent::Page.model_name.human.pluralize, admin_pages_path
+    menu.item Blog::Article.model_name.human.pluralize, admin_blog_articles_path
   end
 
   def user_navigation(menu)

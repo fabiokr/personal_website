@@ -21,5 +21,8 @@
                 = form.label I18n.t("admin.content.#{content_form.object.key}")
                 = content_tag 'div', content_form.object.content.html_safe, :class => 'content'
             - else
-              = content_form.input :content, :label => I18n.t("admin.content.#{content_form.object.key}"), :input_html => { :class => 'wysiwyg' }
+              - if eligible_contents[content_form.object.key.to_sym] == :string
+                = content_form.input :content, :as => :string, :label => I18n.t("admin.content.#{content_form.object.key}")
+              - else
+                = content_form.input :content, :label => I18n.t("admin.content.#{content_form.object.key}"), :input_html => { :class => 'wysiwyg' }
     = render 'form_footer', :form => form, :readonly => readonly

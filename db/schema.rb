@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110818063543) do
+ActiveRecord::Schema.define(:version => 20110822202420) do
 
   create_table "admin_page_contents", :force => true do |t|
     t.integer  "page_id"
@@ -92,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20110818063543) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "short",      :default => false
   end
 
   add_index "manageable_content_page_contents", ["page_id", "key"], :name => "index_manageable_content_page_contents_on_page_id_and_key", :unique => true

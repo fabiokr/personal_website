@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   manageable_layout_content_for :contact_info, :about
-  manageable_content_for        :title, :description, :keywords
+  manageable_content_for        :title, :description, :keywords, :type => :string
 
   respond_to :html
 

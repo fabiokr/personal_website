@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/fabiokr/manageable_content.git
+  revision: a8793d2506ab03749b2e8ab383fad65651bd81f0
+  specs:
+    manageable_content (0.1.0)
+      rails (~> 3.1.0.rc6)
+
+GIT
   remote: git://github.com/guard/guard.git
   revision: b144514b06357a890b19d29b6001eaf2d686800b
   specs:
@@ -109,8 +116,6 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    manageable_content (0.0.1)
-      rails (~> 3.1.0.rc6)
     mime-types (1.16)
     minitest (2.4.0)
     multi_json (1.0.3)
@@ -268,7 +273,7 @@ DEPENDENCIES
   json
   kaminari
   launchy
-  manageable_content
+  manageable_content!
   minitest
   newrelic_rpm
   omniauth (~> 0.2.6)

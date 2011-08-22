@@ -13,8 +13,8 @@ GIT
       thor (~> 0.14.6)
 
 GIT
-  remote: https://github.com/jellybob/activo-rails.git
-  revision: a2d3baa111a8c294218be95603601a05ac7636d9
+  remote: https://github.com/fabiokr/activo-rails.git
+  revision: 4d7320ccfabf42ee8fc436a11d438b75f9336de6
   branch: rails3_1
   specs:
     activo-rails (1.1.0)

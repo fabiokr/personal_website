@@ -18,7 +18,7 @@ gem 'thin'
 gem 'manageable_content', :git => 'git://github.com/fabiokr/manageable_content.git'
 gem 'json'
 gem 'formtastic'
-gem 'activo-rails', :git => 'https://github.com/jellybob/activo-rails.git', :branch => 'rails3_1'
+gem 'activo-rails', :git => 'https://github.com/fabiokr/activo-rails.git', :branch => 'rails3_1'
 
 # Rails 3.1 - Asset Pipeline
 group :assets do

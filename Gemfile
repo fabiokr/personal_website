@@ -25,7 +25,6 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-script'
   gem 'uglifier'
-  gem 'compass', :git => 'https://github.com/chriseppstein/compass.git', :branch => 'rails31'
 end
 
 gem 'jquery-rails'

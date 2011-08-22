@@ -1,10 +1,6 @@
 module Admin
   class UsersController < Admin::Controllers::Resource
 
-    before_filter do
-      @full_width = true
-    end
-
     def destroy
       if current_admin_user.id != params[:id].to_i
         destroy!

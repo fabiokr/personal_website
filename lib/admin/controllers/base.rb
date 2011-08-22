@@ -9,6 +9,10 @@ module Admin
       attr_reader :resource
       helper_method :resource, :current_admin_user
 
+      before_filter do
+        @full_width = true
+      end
+
       def self.template_lookup_path(param = nil)
         paths = super(param)
         paths << 'admin/base'

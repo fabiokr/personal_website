@@ -35,3 +35,12 @@ form.formtastic fieldset > ol > li {
 }
 
 span.cke_skin_kama { border: none !important; padding: 0 !important; }
+
+/** Custom **/
+.dashboard {
+  article {
+    width: 49%;
+    float: left;
+    margin-right: 1%;
+  }
+}

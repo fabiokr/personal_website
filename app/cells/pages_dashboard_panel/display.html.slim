@@ -1,0 +1,17 @@
+= content_box do |box|
+  h3.title #{ManageableContent::Page.model_name.human.pluralize}
+  table class="table"
+    thead
+      tr
+        th= ManageableContent::Page.human_attribute_name(:title)
+        th= ManageableContent::Page.human_attribute_name(:locale)
+        th= ManageableContent::Page.human_attribute_name(:updated_at)
+        th
+    tbody
+      - @pages.each_with_index do |resource, index|
+        tr class="#{index % 2 == 0 ? 'odd' : 'even'}"
+          td #{strip_tags resource.content(:title)} (#{resource.key.titleize})
+          td= resource.locale
+          td= l(resource.updated_at, :format => :short)
+          td.last= link_icon_to :edit, edit_admin_page_path(resource)
+  .wat-cf

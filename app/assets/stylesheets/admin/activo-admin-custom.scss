@@ -1,5 +1,7 @@
 /** Activo admin customization */
 
+#header #main-navigation li.first a { font-size: 40px; }
+
 #main {
   float: right;
 }
@@ -37,6 +39,7 @@ form.formtastic fieldset > ol > li {
 span.cke_skin_kama { border: none !important; padding: 0 !important; }
 
 /** Custom **/
+
 .dashboard {
   article {
     width: 49%;

@@ -99,7 +99,8 @@ module AdminHelper
   end
 
   def main_navigation(menu)
-    menu.item t('admin.admin'), admin_dashboard_path
+    menu.item t('app'), root_path
+    menu.item t('admin.dashboard'), admin_dashboard_path
     menu.item ManageableContent::Page.model_name.human.pluralize, admin_pages_path
   end
 

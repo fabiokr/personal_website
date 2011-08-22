@@ -12,7 +12,4 @@
   = semantic_form_for resource, :url => resource.persisted? ? resource_path(resource) : collection_path, :method => resource.persisted? ? :put : :post  do |form|
     h3.title= form.object.class.model_name.human.titleize
     = render 'form_fields', :form => form, :readonly => readonly
-    - unless readonly
-      = form.inputs do
-        = submit_button "tick", t("admin.save")
-        = link_button   "cross", t("admin.cancel"), :back
+    = render 'form_footer', :form => form, :readonly => readonly

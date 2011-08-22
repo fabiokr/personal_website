@@ -10,7 +10,6 @@ PersonalWebsite::Application.routes.draw do
   namespace 'admin' do
     resource :user_session, :only => [:new, :destroy]
     resource :dashboard, :only => [:show]
-    resource :demo, :only => [:show]
     resources :users
     resources :pages
     

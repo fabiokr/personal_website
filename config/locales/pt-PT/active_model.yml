@@ -1,8 +1,7 @@
 "pt-PT":
   activerecord:
     models:
-      admin:
-        page: Página
+      admin/page: Página
       admin_user: Usuário
     attributes:
       general: &general
@@ -23,9 +22,8 @@
         created_at: Criado(a) em
         url: Url
         locale: Idioma
-      admin:
-        page:
-          <<: *general
+      admin/page:
+        <<: *general
       admin_user:
         email: Email
         password: Senha

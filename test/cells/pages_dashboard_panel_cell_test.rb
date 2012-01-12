@@ -38,7 +38,7 @@ class PagesDashboardPanelCellTest < Cell::TestCase
       resources :sixth_mocks
     end
 
-    ManageableContent::Generator.generate!
+    ManageableContent::Manager.generate!
   end
 
   def teardown

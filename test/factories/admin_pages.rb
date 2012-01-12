@@ -1,7 +1,9 @@
-Factory.define :page, :class => ManageableContent::Page do |p|
-  p.controller_path { Faker::Lorem.words.join(', ') }
-  p.title           { Faker::Lorem.sentence }
-  p.description     { Faker::Lorem.sentence }
-  p.keywords        { Faker::Lorem.words.join(', ') }
-  p.locale          { I18n.locale }
+FactoryGirl.define do
+  factory :page, :class => ManageableContent::Page do
+    controller_path { Faker::Lorem.words.join(', ') }
+    title           { Faker::Lorem.sentence }
+    description     { Faker::Lorem.sentence }
+    keywords        { Faker::Lorem.words.join(', ') }
+    locale          { I18n.locale }
+  end
 end
